@@ -12,6 +12,8 @@ import { DashboardUpdateModelComponent } from './dashboard-update-model/dashboar
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeComponent } from './home/home.component';
+import { IntroPageComponent } from './intro-page/intro-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ModelDetailsComponent } from './model-details/model-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -21,9 +23,16 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 
 const routes: Routes = [
-  {path:'',component:SigninComponent},
-  {path:'signin',component:SigninComponent},
-  {path:'registration',component:RegistrationComponent},
+  {
+    path:'',
+    component:IntroPageComponent,
+    children:[
+      {path:'',component:LandingPageComponent},
+      {path:'landing',component:LandingPageComponent},
+      {path:'signin',component:SigninComponent},
+      {path:'registration',component:RegistrationComponent},
+    ]
+  },
   {
     path:'user_access',
     component:UserAccessComponent,

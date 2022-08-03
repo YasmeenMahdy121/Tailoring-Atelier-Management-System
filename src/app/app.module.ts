@@ -40,6 +40,9 @@ import { DashboardUpdateModelComponent } from './dashboard-update-model/dashboar
 import { DashboardBestSellingModelCardComponent } from './dashboard-best-selling-model-card/dashboard-best-selling-model-card.component';
 import { UserAccessComponent } from './user-access/user-access.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IntroPageComponent } from './intro-page/intro-page.component';
+import { IntroPageNavbarComponent } from './intro-page-navbar/intro-page-navbar.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +80,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardDeleteModelComponent,
     DashboardUpdateModelComponent,
     DashboardBestSellingModelCardComponent,
-    UserAccessComponent
+    UserAccessComponent,
+    IntroPageComponent,
+    IntroPageNavbarComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
