@@ -6,6 +6,7 @@ import { DashboardBestSellingModelsComponent } from './dashboard-best-selling-mo
 import { DashboardChatComponent } from './dashboard-chat/dashboard-chat.component';
 import { DashboardConfirmedModelsComponent } from './dashboard-confirmed-models/dashboard-confirmed-models.component';
 import { DashboardDeleteModelComponent } from './dashboard-delete-model/dashboard-delete-model.component';
+import { DashboardNotificationsComponent } from './dashboard-notifications/dashboard-notifications.component';
 import { DashboardPendingModelsComponent } from './dashboard-pending-models/dashboard-pending-models.component';
 import { DashboardSearshUserModelsComponent } from './dashboard-searsh-user-models/dashboard-searsh-user-models.component';
 import { DashboardUpdateModelComponent } from './dashboard-update-model/dashboard-update-model.component';
@@ -64,6 +65,8 @@ const routes: Routes = [
           {path:'confirmed_models',component:DashboardConfirmedModelsComponent},
           {path:'chat',component:DashboardChatComponent},
           {path:'searsh_user_models/:keyword',component:DashboardSearshUserModelsComponent},
+          {path:'notifications',component:DashboardNotificationsComponent},
+
 
 
         ]

@@ -40,6 +40,7 @@ import { IntroPageComponent } from './intro-page/intro-page.component';
 import { IntroPageNavbarComponent } from './intro-page-navbar/intro-page-navbar.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DashboardConfirmedModelsComponent } from './dashboard-confirmed-models/dashboard-confirmed-models.component';
+import { DashboardNotificationsComponent } from './dashboard-notifications/dashboard-notifications.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { DashboardConfirmedModelsComponent } from './dashboard-confirmed-models/
     IntroPageComponent,
     IntroPageNavbarComponent,
     LandingPageComponent,
-    DashboardConfirmedModelsComponent
+    DashboardConfirmedModelsComponent,
+    DashboardNotificationsComponent
   ],
   imports: [
     BrowserModule,
