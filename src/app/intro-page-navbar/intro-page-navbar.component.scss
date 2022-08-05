@@ -1,0 +1,43 @@
+.intro
+{
+    height: 70px;
+    background: transparent;
+    border-bottom: .5px solid #c64e46;
+
+}
+.logo
+{
+    cursor: pointer;
+}
+h1
+{
+    font-size: 40px;
+    font-weight: 600;
+    color: #c3453c;
+    font-family: 'Vibes', cursive;
+}
+.intro ul
+{
+    text-decoration: none;
+    list-style: none;
+}
+
+.intro ul li
+{
+    margin: 0px 15px;
+    cursor: pointer;
+    
+    padding: 5px 10px;
+    color: #c3453c;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.active
+{
+    margin: 0px 15px;
+    cursor: pointer;
+    background-color: #c3453c;
+    padding: 5px 10px;
+    color: white !important;
+}

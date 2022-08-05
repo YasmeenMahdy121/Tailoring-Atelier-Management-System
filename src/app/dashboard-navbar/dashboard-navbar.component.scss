@@ -1,0 +1,43 @@
+@import '../helpers.scss';
+nav{
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(199, 199, 199);
+  .search-client{
+    button{
+      background-color: transparent;
+      border: none;
+      border-left: 1px solid rgb(167, 165, 165);
+      padding: 10px 20px;
+      font-size: 20px;
+      color: rgb(167, 165, 165);
+    }
+    input{
+      background-color: transparent;
+      border: none;
+      padding: 10px 20px;
+      outline: none;
+    }
+  }
+  .dashboard-notifications{
+    padding-left: 20px;
+    font-size: 22px;
+    position: relative;
+    cursor: pointer;
+    .count{
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $main-color;
+      color: #fff;
+      font-size: 11px;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+  }
+}

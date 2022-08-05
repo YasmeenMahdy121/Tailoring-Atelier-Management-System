@@ -1,1 +1,17 @@
-<p>dashboard-sidebar works!</p>
+<aside class="dashboard-sidebar">
+  <div class="text-center slidebar-header">
+    <img src="../../assets/logo.png" class="w-50 m-auto" alt="">
+    <h2 class="text-center">مستر تايلور</h2>
+  </div>
+  <nav>
+    <ul>
+      <li><a routerLink="/dashboard/atelier_models" routerLinkActive="active"><i class="fa-solid fa-person-dress"></i>جميع التصميمات</a></li>
+      <li><a routerLink="/dashboard/best_selling" routerLinkActive="active"><i class="fa-solid fa-stairs"></i> التصميمات الاكثر مبيعا</a></li>
+      <li><a routerLink="/dashboard/pending_models" routerLinkActive="active"><i class="fa-solid fa-spinner"></i> الحجوزات المعلقة</a></li>
+      <li><a routerLink="/dashboard/confirmed_models" routerLinkActive="active"><i class="far fa-square-check"></i> الحجوزات المؤكدة</a></li>
+      <li><a routerLink="/dashboard/chat" routerLinkActive="active"><i class="far fa-message"></i> محادثات العملاء</a></li>
+    </ul>
+    <div class="divider"></div>
+    <span routerLink="/signin" class="logout"><i class="fa-solid fa-right-from-bracket ms-2"></i>تسجيل الخروج</span>
+  </nav>
+</aside>

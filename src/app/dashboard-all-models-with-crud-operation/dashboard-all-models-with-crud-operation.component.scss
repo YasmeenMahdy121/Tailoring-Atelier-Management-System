@@ -1,0 +1,21 @@
+$box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
+table{
+  box-shadow: $box-shadow;
+}
+
+table tbody tr td
+{
+    vertical-align: middle;
+}
+ svg:hover
+{
+    cursor: pointer;
+    transform: rotate(-110deg);
+}
+
+ svg
+{
+    
+    transition-property: transform;
+    transition-duration: 0.5s;
+}

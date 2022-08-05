@@ -1,6 +1,40 @@
-<p>dashboard-all-models-with-crud-operation works!</p>
-<!-- will loop on this depending on the array of models get from firebase -->
-<app-dashboard-model-card-with-crud-operation></app-dashboard-model-card-with-crud-operation>
+
+<header class="">
+
+
+  <table class="table table-light table-responsive-md text-center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">الصورة</th>
+          <th scope="col">النوع</th>
+          <th scope="col">السعر</th>
+          <th scope="col">تعديل</th>
+          <th scope="col">حذف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- will loop on this depending on the array of models get from firebase -->
+        <tr class="w-100">
+          <td scope="row">1</td>
+          <td><img src="../assets/model.jpeg" width="80" height="80" alt="not_found" ></td>
+          <td>بلوزة</td>
+          <td>50</td>
+          <td>  <i class="fa-solid fa-pen-to-square text-warning"></i>
+                
+              </td>
+          <td>  
+                <i  class="fa fa-trash  text-danger"></i>
+              </td>
+          
+        </tr>
+        <!-- end row -->
+
+      </tbody>
+    </table>
+
+</header>
+
 
 <!-- crud operation routing -->
 <router-outlet></router-outlet>
