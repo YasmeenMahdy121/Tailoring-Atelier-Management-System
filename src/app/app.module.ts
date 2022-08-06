@@ -25,8 +25,6 @@ import { DashboardSearshUserModelsComponent } from './dashboard-searsh-user-mode
 import { DashboardBestSellingModelsComponent } from './dashboard-best-selling-models/dashboard-best-selling-models.component';
 import { DashboardNavbarComponent } from './dashboard-navbar/dashboard-navbar.component';
 import { DashboardChatComponent } from './dashboard-chat/dashboard-chat.component';
-import { DashboardChatSidebarComponent } from './dashboard-chat-sidebar/dashboard-chat-sidebar.component';
-import { DashboardAdminAndUserChatComponent } from './dashboard-admin-and-user-chat/dashboard-admin-and-user-chat.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardPendingModelsComponent } from './dashboard-pending-models/dashboard-pending-models.component';
@@ -41,6 +39,7 @@ import { IntroPageNavbarComponent } from './intro-page-navbar/intro-page-navbar.
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DashboardConfirmedModelsComponent } from './dashboard-confirmed-models/dashboard-confirmed-models.component';
 import { DashboardNotificationsComponent } from './dashboard-notifications/dashboard-notifications.component';
+import { DashboardFeedbackComponent } from './dashboard-feedback/dashboard-feedback.component';
 
 @NgModule({
   declarations: [
@@ -67,8 +66,6 @@ import { DashboardNotificationsComponent } from './dashboard-notifications/dashb
     DashboardBestSellingModelsComponent,
     DashboardNavbarComponent,
     DashboardChatComponent,
-    DashboardChatSidebarComponent,
-    DashboardAdminAndUserChatComponent,
     DashboardPendingModelsComponent,
     PageNotFoundComponent,
     DashboardAddModelComponent,
@@ -79,7 +76,8 @@ import { DashboardNotificationsComponent } from './dashboard-notifications/dashb
     IntroPageNavbarComponent,
     LandingPageComponent,
     DashboardConfirmedModelsComponent,
-    DashboardNotificationsComponent
+    DashboardNotificationsComponent,
+    DashboardFeedbackComponent
   ],
   imports: [
     BrowserModule,
