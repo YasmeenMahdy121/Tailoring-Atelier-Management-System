@@ -1,0 +1,49 @@
+<section class="custom-reservation">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 form-right">
+        <div class="card">
+          <div class="overlay"></div>
+          <form action="">
+            <div class="logo">
+              <img src="../../assets/logo.png" alt="">
+              <h3>مستر تايلور</h3>
+            </div>
+            <div class="form-group">
+              <div class="dropdown">
+                <select required name="modelType" id="modelType">
+                    <option value="" readonly selected>المودل</option>
+                    <option value="1">بلوزة</option>
+                    <option value="2">بنطلون</option>
+                    <option value="3">فستان</option>
+                    <option value="4">جاكت</option>
+                    <option value="5">سلوبت</option>
+                    <option value="6">قميص</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="dropdown">
+                <select required name="modelType" id="modelType">
+                    <option value="" readonly selected>الفئة العمرية</option>
+                    <option value="1">مسنة</option>
+                    <option value="2">شابة</option>
+                    <option value="3">طفلة</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- modelPicture -->
+              <div class="modelPicture">
+                <span>ارفع صورة التصميم <i class="fa-solid fa-upload pe-2"></i></span>
+                <input required type="file" name="userPicture">
+              </div>
+            </div>
+            <button type="submit" class="reservationBtn btn">قم بالحجز الان</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-5 d-none d-md-block img-left"></div>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,100 @@
-<p>registration works!</p>
+<section style="height: calc(100vh - 80px);" class="d-flex justify-content-center align-items-center">
+  <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-12 col-xl-10">
+              <div class="card text-black" style="border-radius: 25px; box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);">
+                  <div class="card-body p-3 pb-4">
+                      <div class="row justify-content-center">
+                          <div class="col-md-10 col-lg-6 col-xl-6 order-2 order-lg-1">
+                              <p class="text-center h2 fw-bold mb-5 mx-1 mx-md-4 mt-4"> إنشاء حساب في مستر تايلور</p>
+
+                              <form class="mx-1 mx-md-4" [formGroup]="registrationForm">
+
+                                  <div class="d-flex flex-row align-items-center mb-4">
+                                      <div class="form-outline flex-fill mb-0">
+                                          <input type="text" id="form3Example1c" class="form-control"
+                                              [class.is-invalid]="userName?.invalid &&userName?.touched"
+                                              placeholder="الإسم" formControlName="userName" />
+                                          <small class="text-danger" *ngIf="userName?.invalid &&userName?.touched">اسم
+                                              المستخدم مطلوب</small>
+                                          <!-- <label class="form-label" for="form3Example1c"> الإسم</label> -->
+                                          <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
+
+                                      </div>
+                                  </div>
+
+                                  <div class="d-flex flex-row align-items-center mb-4">
+                                      <div class="form-outline flex-fill mb-0">
+                                          <input type="email" id="form3Example3c" class="form-control"
+                                              [class.is-invalid]="email?.invalid &&email?.touched"
+                                              placeholder="البريد الإلكتروني" formControlName="email" />
+                                              <div *ngIf="user['email'].invalid &&  user['email'].touched">
+
+                                                <small class="text-danger" *ngIf="user['email'].errors?.['required']">الاميل مطلوب </small>
+                                                <small class="text-danger" *ngIf="user['email'].errors?.['email']"> الاميل يجب ان يكون بهذا الشكل  Example@go.com </small>
+                                        <!-- <label class="form-label" for="form3Example1c"> الإسم</label> -->
+                                        <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
+                                    </div>
+
+                                          <!-- <label class="form-label" for="form3Example3c"> البريد الإلكتروني</label> -->
+                                          <!-- <i class="fas fa-envelope fa-lg me-3 fa-fw"></i> -->
+                                      </div>
+                                  </div>
+
+                                  <div class="d-flex flex-row align-items-center mb-4">
+                                      <div class="form-outline flex-fill mb-0">
+                                          <input type="text" id="form3Example3c" class="form-control"
+                                              [class.is-invalid]="phone?.invalid &&phone?.touched"
+                                              placeholder="رقم الهاتف" formControlName="phone" />
+                                          <div *ngIf="phone?.invalid &&phone?.touched">
+                                              <small class="text-danger" *ngIf="phone?.errors?.['required']">رقم
+                                                  الهاتف مطلوب</small>
+                                              <small class="text-danger" *ngIf="phone?.errors?.['minlength']">رقم
+                                                  الهاتف يجب أن تكون 11 أرقام</small>
+                                          </div>
+                                          <!-- <label class="form-label" for="form3Example3c"> رقم الهاتف</label> -->
+                                          <!-- <i class="fas fa-phone fa-lg me-3 fa-fw"></i> -->
+                                      </div>
+                                  </div>
+
+                                  <div class="d-flex flex-row align-items-center mb-4">
+                                      <div class="form-outline flex-fill mb-0">
+                                          <input type="password" id="form3Example4c" class="form-control"
+                                              [class.is-invalid]="password?.invalid &&password?.touched"
+                                              placeholder="كلمة السر" formControlName="password" />
+                                          <div *ngIf="password?.invalid &&password?.touched">
+                                              <small class="text-danger" *ngIf="password?.errors?.['required']">كلمة
+                                                  السر مطلوب</small>
+                                              <small class="text-danger" *ngIf="password?.errors?.['minlength']">كلمة
+                                                  السر يجب أن تكون 8 أرقام</small>
+                                          </div>
+                                          <!-- <label class="form-label" for="form3Example4c">كلمة السر</label> -->
+                                          <!-- <i class="fas fa-lock fa-lg me-3 fa-fw"></i> -->
+                                      </div>
+                                  </div>
+
+                                  <mat-slide-toggle formControlName="isadmin" id="slider"><b>مشرف</b></mat-slide-toggle>
+
+                                  <div class="d-flex pt-3">
+                                      <!-- <button type="button" style="margin-left:10px ;" class="btn btn-outline-primary w-50">تسجيل</button> -->
+                                      <button id="btn" type="button" class="btn btn-lg btn-lg w-50" (click)="onSubmit()" [disabled]="!registrationForm.valid">إنشاء حساب
+                                          جديد</button>
+
+                                  </div>
+
+                              </form>
+
+                          </div>
+                          <div class="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2">
+
+                              <img src="assets/registration.jpg" class="img-fluid"
+                                  alt="Sample image">
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

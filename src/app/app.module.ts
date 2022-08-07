@@ -40,6 +40,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DashboardConfirmedModelsComponent } from './dashboard-confirmed-models/dashboard-confirmed-models.component';
 import { DashboardNotificationsComponent } from './dashboard-notifications/dashboard-notifications.component';
 import { DashboardFeedbackComponent } from './dashboard-feedback/dashboard-feedback.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { UserCustomReservationComponent } from './user-custom-reservation/user-custom-reservation.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +81,8 @@ import { DashboardFeedbackComponent } from './dashboard-feedback/dashboard-feedb
     LandingPageComponent,
     DashboardConfirmedModelsComponent,
     DashboardNotificationsComponent,
-    DashboardFeedbackComponent
+    DashboardFeedbackComponent,
+    UserCustomReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +91,8 @@ import { DashboardFeedbackComponent } from './dashboard-feedback/dashboard-feedb
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSlideToggleModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [],
   bootstrap: [AppComponent]

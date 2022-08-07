@@ -1,0 +1,33 @@
+#btn1{
+  color: #eee;
+  background-color: rgba(195,69,60,255);
+}
+.btn{
+  border: 2px solid;
+background-color: white;
+padding: 14px 28px;
+font-size: 16px;
+cursor: pointer
+}
+.danger {
+  border-color: rgba(195,69,60,255);
+  color:  rgba(195,69,60,255);
+}
+.danger:hover {
+  background: rgba(195,69,60,255);
+  color: white;
+}
+
+p{
+  color: rgba(195,69,60,255);
+}
+#slider{
+  color: rgba(195,69,60,255);
+  font-size: 20px;
+}
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color:brown ;
+}
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: rgba(195,69,60,255) ;
+}
