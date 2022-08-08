@@ -1,45 +1,12 @@
-<div class="overlay ">
+<div *ngIf="modelID" class="overlay">
     <div class="overlay-form w-50  h-50">
-        <!-- <form action="" class="w-50 m-auto py-5">
-            
-            
-               <div class="download-img d-flex justify-content-between  align-items-center my-4">
-                <label for="downImg" > تحميل الصورة : </label>
-                <input type="file"  name="img" id="downImg" >
-               </div>
-                
-               <div class="d-flex justify-content-between align-items-center my-4">
-                <label  for="imgType"> الموديل :</label>
-                <select name="imgType" id="imgType" class="shadow-none border-secondary form-control w-75">
-                    <option value="..." selected></option>
-                    <option value="بلوزة" >بلوزة</option>
-                    <option value="فستان" >فستان</option>
-                    <option value="بنطلون" >بنطلون</option>
-                    <option value="عباية" >عباية</option>
-                </select>
-       
-               </div>
-    
-               <div class="d-flex justify-content-between align-items-center my-4">
-                <label  for="imgType">السعر  :</label>
-                <input type="text" class="form-control shadow-none border-secondary w-75" name="" id="">
-       
-               </div>
-    
-               <div class="d-flex justify-content-between  align-items-center my-4">
-                <label  for="imgType">نوع الموديل :</label>
-                <input type="text" class="form-control shadow-none border-secondary w-75" name="" id="">
-       
-               </div>
-       
-    </form> -->
 
     <div class="card">
         <div class="overlay"></div>
 
-        <form action="">
-      
-  
+        <form (ngSubmit)="deleteModel()">
+
+
             <p class="lead py-3 pt-5 text-center text-white">
                 هل تريد بالفعل حذف هذا الموديل
             </p>
@@ -51,6 +18,5 @@
         </form>
       </div>
     </div>
-    </div> 
-    
-    
+    </div>
+

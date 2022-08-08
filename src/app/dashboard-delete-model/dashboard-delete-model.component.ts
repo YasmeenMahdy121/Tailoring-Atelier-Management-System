@@ -1,4 +1,6 @@
+import { DashboardService } from './../services/dashboard.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-delete-model',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardDeleteModelComponent implements OnInit {
 
-  constructor() { }
+  constructor(private DashboardService:DashboardService, private activatedRoute:ActivatedRoute) { }
+
+  modelID:any = false
 
   ngOnInit(): void {
+    // get active url params
+    this.activatedRoute.paramMap.subscribe((params:ParamMap)=>
+    {
+      this.modelID=params.get('id');
+    })
+  }
+
+  // delete model
+  deleteModel(){
+    this.DashboardService.deleteModel(this.modelID)
   }
 
 }
