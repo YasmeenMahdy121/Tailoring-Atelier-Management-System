@@ -59,8 +59,8 @@ const routes: Routes = [
             component:DashboardAllModelsWithCrudOPerationComponent,
             children:[
               {path:'add_model',component:DashboardAddModelComponent},
-              {path:'update_model',component:DashboardUpdateModelComponent},
-              {path:'delete_model',component:DashboardDeleteModelComponent},
+              {path:'update_model/:id',component:DashboardUpdateModelComponent},
+              {path:'delete_model/:id',component:DashboardDeleteModelComponent},
             ]
           },
           {path:'best_selling',component:DashboardBestSellingModelsComponent},
