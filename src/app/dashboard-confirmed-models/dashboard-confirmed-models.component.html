@@ -1,1 +1,54 @@
-<p>dashboard-confirmed-models works!</p>
+<header class="">
+
+<!-- 
+    <div class=" my-4 m-auto">
+       
+      <div class="search-model d-flex justify-content-center align-items-center">
+    
+        <input class="form-control w-50 shadow-none " placeholder=" أبحث " type="text" name="search" id="searchModel">
+        <button class="btn ">أبحث</button>
+      </div>
+    </div>
+    -->
+      
+        <table class="table table-light table-responsive-md text-center mt-5">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">الصورة</th>
+                <th scope="col">النوع</th>
+                <th scope="col">السعر</th>
+                <th scope="col">رقم العميل</th>
+                <th scope="col">مؤكد</th>
+                <th scope="col">حذف</th>
+  
+              </tr>
+            </thead>
+            <tbody>
+              
+              <!-- will loop on this depending on the array of models get from firebase -->
+              <tr class="w-100">
+                <td scope="row">1</td>
+                <td><img src="../assets/model.jpeg" width="80" height="80" alt="not_found" ></td>
+                <td>بلوزة</td>
+                <td>50</td>
+                <td>  
+                 01093229411
+                    </td>
+                <td>  
+                    <i class="fa fa-check text-success"></i>
+                    </td>
+                <td><i class="fa fas fa-trash text-danger"></i></td>
+              </tr>
+              <!-- end row -->
+      
+            </tbody>
+          </table>
+      
+      </header>
+      
+  <!-- make table and loop on row depending on the array of models get from firebase and get best selling-->
+  
+  
+  <!--make table and loop on row depending on the array of pending models get from firebase -->
+  

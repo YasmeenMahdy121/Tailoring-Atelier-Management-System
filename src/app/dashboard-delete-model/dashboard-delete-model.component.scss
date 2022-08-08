@@ -1,0 +1,73 @@
+.overlay
+{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(10, 10, 10,.2);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+.overlay-form
+{
+    position: absolute;
+    transform:translate(-50,-50);
+    
+    right: 30%;
+    top: 10%;
+    
+    margin: auto;
+}
+
+.overlay-form{
+    width: 88%;
+    margin-top: 20px;
+    .card{
+      width: 100%;
+      
+      background: url('../../assets/reservation.webp') left center no-repeat;
+      background-size: cover;
+      position: relative;
+      box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
+      border-radius: 5px;
+      overflow: hidden;
+      padding-bottom:15px ;
+      @media screen and(max-width:768px){
+        width: 100%;
+      }
+      .overlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #0f5264;
+        opacity: .9;
+      }
+      form{
+        padding: 15px 30px;
+        z-index: 2;
+        
+          p{
+            font-size: 30px;
+          }
+          
+        }
+      .formBtn{
+        width: 45%;
+        margin-top: 20px;
+        padding: 10px;
+        
+        color: #fff;
+        font-size: 18px;
+        border: none;
+       box-shadow: none;
+      }
+      }
+    }
+  
+

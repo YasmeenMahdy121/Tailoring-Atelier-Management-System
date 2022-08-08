@@ -1,0 +1,56 @@
+$box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
+table{
+  box-shadow: $box-shadow;
+}
+
+table tbody tr td
+{
+    vertical-align: middle;
+}
+ svg:hover
+{
+    cursor: pointer;
+    transform: rotate(-110deg);
+}
+
+ svg
+{
+    
+    transition-property: transform;
+    transition-duration: 0.5s;
+}
+
+table tbody tr button
+{
+    background-color: #c3453c;
+    
+    border: #c3453c;
+    color: white;
+    box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.add-model button
+{
+    background-color: #c3453c;
+    
+    border: #c3453c;
+    color: white;
+    box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+.search-model button
+{
+    background-color: #000;
+    box-shadow: none;
+    border: #000;
+    color: white;
+    border-radius: 2px;
+    box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.search-model input
+{
+    border-radius: 1px;
+    margin: 0px 10px;
+    border: 1px solid rgb(205, 200, 200,.8);
+    box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
+}

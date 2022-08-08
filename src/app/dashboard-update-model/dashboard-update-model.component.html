@@ -1,1 +1,93 @@
-<p>dashboard-update-model works!</p>
+<div class="overlay ">
+    <div class="overlay-form w-50  h-50">
+        <!-- <form action="" class="w-50 m-auto py-5">
+            
+            
+               <div class="download-img d-flex justify-content-between  align-items-center my-4">
+                <label for="downImg" > تحميل الصورة : </label>
+                <input type="file"  name="img" id="downImg" >
+               </div>
+                
+               <div class="d-flex justify-content-between align-items-center my-4">
+                <label  for="imgType"> الموديل :</label>
+                <select name="imgType" id="imgType" class="shadow-none border-secondary form-control w-75">
+                    <option value="..." selected></option>
+                    <option value="بلوزة" >بلوزة</option>
+                    <option value="فستان" >فستان</option>
+                    <option value="بنطلون" >بنطلون</option>
+                    <option value="عباية" >عباية</option>
+                </select>
+       
+               </div>
+    
+               <div class="d-flex justify-content-between align-items-center my-4">
+                <label  for="imgType">السعر  :</label>
+                <input type="text" class="form-control shadow-none border-secondary w-75" name="" id="">
+       
+               </div>
+    
+               <div class="d-flex justify-content-between  align-items-center my-4">
+                <label  for="imgType">نوع الموديل :</label>
+                <input type="text" class="form-control shadow-none border-secondary w-75" name="" id="">
+       
+               </div>
+       
+    </form> -->
+
+    <div class="card">
+        <div class="overlay"></div>
+        <form action="">
+          <div class="logo">
+            <img src="../../assets/logo.png" alt="">
+            <h3>مستر تايلور</h3>
+          </div>
+          <div class="form-group">
+            <div class="dropdown">
+              <select required name="modelType" id="modelType">
+                  <option value="" readonly selected>المودل</option>
+                  <option value="1">بلوزة</option>
+                  <option value="2">بنطلون</option>
+                  <option value="3">فستان</option>
+                  <option value="4">جاكت</option>
+                  <option value="5">سلوبت</option>
+                  <option value="6">قميص</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="dropdown">
+              <select required name="modelType" id="modelType">
+                  <option value="" readonly selected>الفئة العمرية</option>
+                  <option value="1">مسنة</option>
+                  <option value="2">شابة</option>
+                  <option value="3">طفلة</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <!-- modelPicture -->
+            <div class="modelPrice">
+              
+              <input required type="number" placeholder="السعر" name="modelPrice">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <!-- modelPicture -->
+            <div class="modelPicture">
+              <span>ارفع صورة التصميم <i class="fa-solid fa-upload pe-2"></i></span>
+              <input required type="file" name="userPicture">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="submit" class="formBtn btn btn-success">  تعديل</button>
+          <button routerLink="/dashboard/atelier_models" type="button" class="formBtn btn btn-danger">الغاء </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div> 
+    
+    

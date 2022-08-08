@@ -1,0 +1,24 @@
+.land h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: #c3453c;
+}
+
+.land {
+  height: calc(100vh - 70px);
+}
+
+.land-content button {
+  background-color: #c3453c;
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.land p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.5;
+  color: #757575;
+}
+/*# sourceMappingURL=landing-page.component.css.map */

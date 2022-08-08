@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "user-models.component.scss"
+    ],
+    "names": [],
+    "file": "user-models.component.css"
+}
