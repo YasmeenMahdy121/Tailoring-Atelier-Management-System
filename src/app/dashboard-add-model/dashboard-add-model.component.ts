@@ -45,7 +45,7 @@ export class DashboardAddModelComponent implements OnInit {
   addModel(){
     // this.uploadImg()
     const newModel = {
-     date:new Date().getTime(),
+      date:new Date().getTime(),
       modelType:this.modelType?.value,
       price:this.modelPrice?.value,
       ageCategory:this.ageCategory?.value,
@@ -54,17 +54,18 @@ export class DashboardAddModelComponent implements OnInit {
       rateOut2:0,
       rateOut3:0,
       rateOut4:0,
-      rateOut5:0
+      rateOut5:0,
+      type:'exist'
     }
     this.DashboardService.addNewModel(newModel,this.imgPath)
     this.addModelForm.reset()
-    
+
     this.router.navigate(["/dashboard/atelier_models"])
-    
+
   }
 
   ngOnInit(): void {
- 
+
   }
 
 }

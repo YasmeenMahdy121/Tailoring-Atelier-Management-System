@@ -9,27 +9,29 @@ import { Observable , BehaviorSubject} from 'rxjs'
 })
 export class AuthService {
 
-  isLoggedIn=new BehaviorSubject<any>(null)
-  isAdmin=new BehaviorSubject<any>(null)
+  loggedInInfo=new BehaviorSubject<any>(null)
 
   constructor(private mrTailorAuth:AngularFireAuth, private router:Router, private mrTailorDB:AngularFirestore) {
-    // this.isLoggedIn.next(localStorage.getItem('mrTailorCurrentUserKey')?localStorage.getItem('mrTailorCurrentUserKey'):null);
+    this.loggedInInfo.next(JSON.parse(localStorage.getItem('mrTailorloggedInInfo')||'')?JSON.parse(localStorage.getItem('mrTailorloggedInInfo')||''):{});
   }
 
     // login
     login(email:any, password:any, isAdmin:boolean){
       this.mrTailorAuth.signInWithEmailAndPassword(email, password).then((userCredential)=>{
         let user = userCredential.user;
-        this.isLoggedIn.next(user?.uid);
-        this.isAdmin.next(isAdmin);
-        localStorage.setItem("mrTailorCurrentUserKey", JSON.stringify(user?.uid))
-        localStorage.setItem("mrTailorAdmin", JSON.stringify(isAdmin))
+        let loggedinInfo = {
+          isLoggedIn:true,
+          currentUserId:user?.uid,
+          isAdmin:isAdmin
+        }
+        this.loggedInInfo.next(loggedinInfo)
+        localStorage.setItem("mrTailorloggedInInfo", JSON.stringify(loggedinInfo))
         if(isAdmin){
           this.router.navigate(["/dashboard"]);
         }
         else{
           this.router.navigate(["/user_access"]);
-        } 
+        }
       },err=>{
         console.log(err.message)
         this.router.navigate(["/signin"]);
@@ -40,18 +42,21 @@ export class AuthService {
     register(userInfo:any, isAdmin:boolean){
       this.mrTailorAuth.createUserWithEmailAndPassword(userInfo.email, userInfo.password).then((userCredential)=>{
         let user = userCredential.user;
-        this.isLoggedIn.next(user?.uid);
-        this.isAdmin.next(isAdmin);
-        localStorage.setItem("mrTailorCurrentUserKey", JSON.stringify(user?.uid))
-        localStorage.setItem("mrTailorAdmin", JSON.stringify(isAdmin))
+        let loggedinInfo = {
+          isLoggedIn:true,
+          currentUserId:user?.uid,
+          isAdmin:isAdmin
+        }
+        this.loggedInInfo.next(loggedinInfo)
+        localStorage.setItem("mrTailorloggedInInfo", JSON.stringify(loggedinInfo))
         if(isAdmin){
           let ref = this.mrTailorDB.collection("/mrTailorAdmins").doc(user?.uid)
-          ref.set({...userInfo, adminKey:user?.uid})
+          ref.set({...userInfo, adminId:user?.uid})
           this.router.navigate(["/dashboard"]);
         }
         else{
           let ref = this.mrTailorDB.collection("/mrTailorClients").doc(user?.uid)
-          ref.set({...userInfo, clientKey:user?.uid})
+          ref.set({...userInfo, clientId:user?.uid, dateJoined: new Date().toDateString()})
           this.router.navigate(["/user_access"]);
         }
       },err=>{
@@ -63,10 +68,13 @@ export class AuthService {
     // log out
     logOut(){
       this.mrTailorAuth.signOut().then(()=>{
-        this.isLoggedIn.next(null);
-        this.isAdmin.next(null);
-        localStorage.removeItem('mrTailorCurrentUserKey')
-        localStorage.removeItem('mrTailorAdmin')
+        let loggedinInfo = {
+          isLoggedIn:false,
+          currentUserId:null,
+          isAdmin:null
+        }
+        this.loggedInInfo.next(loggedinInfo)
+        localStorage.setItem("mrTailorloggedInInfo", JSON.stringify(loggedinInfo))
         this.router.navigate(["/signin"]);
       },err=>{
         console.log(err.message)

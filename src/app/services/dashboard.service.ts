@@ -12,9 +12,7 @@ export class DashboardService {
   // get all Models in firebase
   getAllModels()
   {
-   let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('date')
-    )
-    // let ref = this.mrTailorDB.collection("/models")
+   let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('date'))
     return ref.snapshotChanges()
   }
 
@@ -33,7 +31,7 @@ export class DashboardService {
        ref.set(model)
 
     }
-    
+
     )
   }
   // get model by id
@@ -52,5 +50,24 @@ export class DashboardService {
     let ref = this.mrTailorDB.collection("models").doc(modelID)
     ref.delete()
     this.router.navigate(["/dashboard/atelier_models"]);
+  }
+  // get pendding models
+  getPenddingModels()
+  {
+   let ref= this.mrTailorDB.collection('/pending', ref =>    ref.orderBy('reservationDate'))
+    return ref.snapshotChanges()
+  }
+  // add to confirm models
+  addToConfirmModels(model:any){
+    let key =this.mrTailorDB.createId();
+    this.mrTailorDB.collection("confirmedModels").doc(key).set(model)
+  }
+  // update user model
+  updateUserModel(model:any){
+    this.mrTailorDB.collection(`/usersModels/${model.clientInfo.clientId}/userModels`).doc(model.modelId).update(model)
+  }
+  // delete pendding model
+  deletePenddingModel(model:any){
+    this.mrTailorDB.collection('pending').doc(model.modelId).delete()
   }
 }
