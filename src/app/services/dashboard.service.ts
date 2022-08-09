@@ -9,18 +9,32 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class DashboardService {
 
   constructor(private mrTailorStorage: AngularFireStorage, private mrTailorDB:AngularFirestore, private router:Router) { }
-
-  // upload image to fire storage
-  uploadImg(path:string){
-    const imgUrl = `/files${Math.random()}${path}`
-    this.mrTailorStorage.upload(imgUrl,path)
-    return imgUrl
+  // get all Models in firebase
+  getAllModels()
+  {
+   let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('date')
+    )
+    // let ref = this.mrTailorDB.collection("/models")
+    return ref.snapshotChanges()
   }
+
   // add new model
-  addNewModel(newModel:any){
-    newModel.modelId =this.mrTailorDB.createId();
-    let ref = this.mrTailorDB.collection("models").doc(newModel.modelId)
-    ref.set(newModel)
+  imgUrlP1:string = 'https://firebasestorage.googleapis.com/v0/b/iti-graduation-project-d5b5e.appspot.com/o'
+  imgUrlP2:string = '?alt=media&token=349ee2d1-e9f5-4794-943a-3ebe9d0a7a95'
+  addNewModel(newModel:any,path:string){
+    const imgUrl = `/files${Math.random()}${path}`
+    this.mrTailorStorage.upload(imgUrl,path).then(()=>{
+      let model ={
+        ...newModel,
+        img:this.imgUrlP1+imgUrl+this.imgUrlP2,
+       }
+       model.modelId =this.mrTailorDB.createId();
+       let ref = this.mrTailorDB.collection("models").doc(model.modelId)
+       ref.set(model)
+
+    }
+    
+    )
   }
   // get model by id
   getModelById(modelID:any){

@@ -44,6 +44,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { UserCustomReservationComponent } from './user-custom-reservation/user-custom-reservation.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { UserCustomReservationComponent } from './user-custom-reservation/user-c
     DashboardConfirmedModelsComponent,
     DashboardNotificationsComponent,
     DashboardFeedbackComponent,
-    UserCustomReservationComponent
+    UserCustomReservationComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

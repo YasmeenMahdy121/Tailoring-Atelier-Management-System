@@ -1,6 +1,7 @@
 import { DashboardService } from './../services/dashboard.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-add-model',
@@ -9,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class DashboardAddModelComponent implements OnInit {
 
-  constructor(private DashboardService:DashboardService, private fb:FormBuilder) { }
+  constructor(private DashboardService:DashboardService, private fb:FormBuilder , private router:Router) { }
 
   addModelForm= this.fb.group({
     modelType : ['',[Validators.required]],
@@ -20,8 +21,7 @@ export class DashboardAddModelComponent implements OnInit {
 
   imgPath:string = ''
   imgUrl:string = ''
-  imgUrlP1:string = 'https://firebasestorage.googleapis.com/v0/b/iti-graduation-project-d5b5e.appspot.com/o'
-  imgUrlP2:string = '?alt=media&token=349ee2d1-e9f5-4794-943a-3ebe9d0a7a95'
+
 
   // get form values
   get modelType(){
@@ -40,15 +40,12 @@ export class DashboardAddModelComponent implements OnInit {
   selectedImg($event:any){
     this.imgPath = $event.target.files[0]
   }
-  // upload image to fire storage
-  uploadImg(){
-    this.imgUrl = this.DashboardService.uploadImg(this.imgPath)
-  }
+
   // add model
   addModel(){
-    this.uploadImg()
+    // this.uploadImg()
     const newModel = {
-      img:this.imgUrlP1+this.imgUrl+this.imgUrlP2,
+     date:new Date().getTime(),
       modelType:this.modelType?.value,
       price:this.modelPrice?.value,
       ageCategory:this.ageCategory?.value,
@@ -59,11 +56,15 @@ export class DashboardAddModelComponent implements OnInit {
       rateOut4:0,
       rateOut5:0
     }
-    this.DashboardService.addNewModel(newModel)
+    this.DashboardService.addNewModel(newModel,this.imgPath)
     this.addModelForm.reset()
+    
+    this.router.navigate(["/dashboard/atelier_models"])
+    
   }
 
   ngOnInit(): void {
+ 
   }
 
 }

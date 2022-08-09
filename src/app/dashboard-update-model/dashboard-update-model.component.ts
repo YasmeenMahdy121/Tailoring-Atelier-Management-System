@@ -54,15 +54,15 @@ export class DashboardUpdateModelComponent implements OnInit {
   // initialize form values
   setFormValues(){
     this.updateModelForm.patchValue({
-      modelType:this.oldModel.modelType,
-      ageCategory:this.oldModel.ageCategory,
-      modelPrice:this.oldModel.price,
+      modelType:this.oldModel?.modelType,
+      ageCategory:this.oldModel?.ageCategory,
+      modelPrice:this.oldModel?.price,
     })
   }
   // update model
   updateModel(){
     let updatedModel = {
-      modelId:this.oldModel.modelId,
+      modelId:this.oldModel?.modelId,
       modelType:this.modelType?.value,
       price:this.modelPrice?.value,
       ageCategory:this.ageCategory?.value,
