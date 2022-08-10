@@ -24,6 +24,7 @@ import { UserAccessComponent } from './user-access/user-access.component';
 import { UserCustomReservationComponent } from './user-custom-reservation/user-custom-reservation.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSearchComponent } from './user-search/user-search.component';
+import { ViewAllModelsComponent } from './view-all-models/view-all-models.component';
 
 const routes: Routes = [
   {
@@ -46,7 +47,8 @@ const routes: Routes = [
       {path:'user_profile',component:UserProfileComponent},
       {path:'user_search/:keyword',component:UserSearchComponent},
       {path:'feedback',component:FeedbackComponent},
-      {path:'custom_reservation',component:UserCustomReservationComponent}
+      {path:'custom_reservation',component:UserCustomReservationComponent},
+      {path:'custom_reservation',component:ViewAllModelsComponent}
     ]
   },
   {

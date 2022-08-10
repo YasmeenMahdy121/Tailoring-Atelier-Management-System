@@ -46,6 +46,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { UserCustomReservationComponent } from './user-custom-reservation/user-custom-reservation.component';
 import { SearchPipe } from './search.pipe';
+import { ViewAllModelsComponent } from './view-all-models/view-all-models.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { SearchPipe } from './search.pipe';
     DashboardNotificationsComponent,
     DashboardFeedbackComponent,
     UserCustomReservationComponent,
-    SearchPipe
+    SearchPipe,
+    ViewAllModelsComponent
   ],
   imports: [
     BrowserModule,
