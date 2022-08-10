@@ -12,7 +12,7 @@ export class AuthService {
   loggedInInfo=new BehaviorSubject<any>(null)
 
   constructor(private mrTailorAuth:AngularFireAuth, private router:Router, private mrTailorDB:AngularFirestore) {
-    this.loggedInInfo.next(JSON.parse(localStorage.getItem('mrTailorloggedInInfo')||'')?JSON.parse(localStorage.getItem('mrTailorloggedInInfo')||''):{});
+    this.loggedInInfo.next(JSON.parse(localStorage.getItem('mrTailorloggedInInfo')||'{}')?JSON.parse(localStorage.getItem('mrTailorloggedInInfo')||'{}'):{});
   }
 
     // login

@@ -1,0 +1,47 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+// .feedbackContent{
+
+// }
+@media only screen and (max-width: 575px) {
+  .feedbackContent{
+    padding: 0 30px;
+  }
+}
+.row{
+  min-height: 100vh;
+}
+.reviewsCol{
+  padding: 100px 0 30px;
+  background-image: url('../../assets/155.jpg');
+  background-position: center center;
+  background-repeat: repeat-x;
+  background-size: cover;
+
+  .reviewContent{
+    padding: 20px 20px 20px 0;
+    border-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 5px #888888;
+    // background-color: transparent;
+    background-color: rgba(255, 255, 255, .9);
+  }
+}
+.formCol{
+  background-color: white;
+  padding: 50px;
+  height: 90vh;
+  box-shadow: 0px 0px 2px #888888;
+  position: relative;
+  top: 60px;
+  // z-index: 100;
+
+  @media only screen and (max-width: 768px) {
+      height: fit-content;
+      padding: 35px 70px 15px;
+      // position: relative;
+  }
+}

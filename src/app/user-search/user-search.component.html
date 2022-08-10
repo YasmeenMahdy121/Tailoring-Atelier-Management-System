@@ -1,6 +1,171 @@
-<p>user-search works!</p>
+<!-- <p>user-search works!</p> -->
 
 <!-- sidebar for filteration -->
+<div class="row">
+  <div class="col-lg-3 filterationCol" style="background-color: transparent;">
+      <!-- model -->
+    <div class="model">
+      <h1>التصميم</h1>
+      <div class="innerDiv">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+          <label class="form-check-label" for="flexRadioDefault1">
+            بلوزة
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+          <label class="form-check-label" for="flexRadioDefault2">
+            جيبة
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+          <label class="form-check-label" for="flexRadioDefault3">
+            بنطلون
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+          <label class="form-check-label" for="flexRadioDefault4">
+            فستان
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+          <label class="form-check-label" for="flexRadioDefault5">
+            جاكيت
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- <hr> -->
+    <!-- age -->
+    <div class="age">
+      <h1>السن</h1>
+      <div class="innerDiv">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="age" id="age1" checked>
+          <label class="form-check-label" for="age1">
+            كبار السن
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="age" id="age2">
+          <label class="form-check-label" for="age2">
+            متوسط السن
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="age" id="age3">
+          <label class="form-check-label" for="age3">
+            صغار السن
+          </label>
+        </div>
+      </div>
+    </div>
 
+    <!-- slider price -->
+
+    <div class="price">
+      <h1>السعر</h1>
+
+      <div class="innerDiv">
+        <div dir="rtl">
+          <div class="example-label-container" [class]="vertical ? 'example-label-vertical' : 'example-label-horizontal'">
+            <!-- <label id="example-name-label" class="example-name-label">Max Value</label> -->
+            <label class="example-value-label"> {{value}}  جنيه  </label>
+          </div>
+          <mat-slider
+              class="example-margin"
+              [disabled]="disabled"
+              [invert]="invert"
+              [max]="max"
+              [min]="min"
+              [step]="step"
+              [thumbLabel]="thumbLabel"
+              [tickInterval]="getSliderTickInterval()"
+              [(ngModel)]="value"
+              [vertical]="vertical"
+              aria-labelledby="example-name-label">
+          </mat-slider>
+        </div>
+      </div>
+    </div>
+    <!-- end slider -->
+
+    <!-- stars -->
+    <div class="starsDiv">
+      <h1>التقييم</h1>
+      <div class="innerDiv">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="star" id="star1" checked>
+          <label class="form-check-label" for="star1">
+            <div class="stars">
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+            </div>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="star" id="star2">
+          <label class="form-check-label" for="star2">
+            <div class="stars">
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="star" id="star3">
+          <label class="form-check-label" for="star3">
+            <div class="stars">
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="star" id="star4">
+          <label class="form-check-label" for="star4">
+            <div class="stars">
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="star" id="star5">
+          <label class="form-check-label" for="star5">
+            <div class="stars">
+              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <!-- end stars -->
+  </div>
+  <div class="col-lg-9 modelCardCol" style="background-color: transparent;">
+    <app-model-card></app-model-card>
+
+
+  </div>
+</div>
 <!-- use app-model-card component to show searched models and loop on it -->
-<app-model-card></app-model-card>

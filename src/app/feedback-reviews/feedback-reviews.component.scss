@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.allReviewSection{
+
+  height: 72vh;
+  // background-color: green;
+  .forReviews{
+    // background-color: aqua;
+    overflow-y: scroll;
+    height: 90%;
+    &::-webkit-scrollbar {
+      width: 5px; /* Remove scrollbar space */
+      background: transparent; /* Optional: just make scrollbar invisible */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #c3453c;
+    }
+    .review{
+
+      padding: 12px;
+      .userData{
+        .name{
+          font-weight: bold;
+          font-size: 20px;
+        }
+        .date{
+          color: gray;
+          font-size: 17px;
+        }
+      }
+      .txtReview{
+        padding: 10px 0;
+
+        .para{
+          font-size: 18px;
+          color: rgb(100, 100, 100);
+        }
+      }
+    }
+  }
+}
+
+

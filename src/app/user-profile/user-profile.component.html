@@ -1,9 +1,27 @@
-<p>user-profile works!</p>
 
-<!-- you will make two tabs -->
+<div class="container" style="padding: 130px 0 70px; background-color: transparent;">
+  <!--  -->
+      <div class="tapsContent">
+        <nav class="navAll">
+          <div class="nav-tabs-container">
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <button class="nav-link rounded-0 border-0 ms-5 py-3 active" id="nav-account-tab" #data
+                      data-bs-toggle="tab" data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account" aria-selected="true" >بياناتى</button>
+                  <button class="nav-link rounded-0 border-0 Py-3" id="nav-my-orders-tab" data-bs-toggle="tab"
+                      data-bs-target="#nav-my-orders" type="button" role="tab" aria-controls="nav-my-orders"
+                      aria-selected="false">تصميماتى</button>
+              </div>
+          </div>
+        </nav>
 
-<!-- make app-user-info component inside first tab content -->
-<app-user-info></app-user-info>
 
-<!-- make app-user-models component inside second tab content -->
-<app-user-models></app-user-models>
+        <div class="tab-content tabs-container" id="nav-tabContent">
+          <div class="tab-pane fade show p-3 active" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
+            <app-user-info></app-user-info>
+          </div>
+          <div class="tab-pane fade p-3" id="nav-my-orders" role="tabpanel" aria-labelledby="nav-my-orders-tab">
+            <app-user-models></app-user-models>
+          </div>
+        </div>
+      </div>
+    </div>
