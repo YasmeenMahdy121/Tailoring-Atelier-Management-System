@@ -36,3 +36,32 @@
 
 
 <!--make table and loop on row depending on the array of pending models get from firebase -->
+<div *ngIf="showConfirm" class="overlay ">
+  <div class="overlay-form w-50  h-50">
+  <div class="card">
+      <div class="overlay"></div>
+      <form  [formGroup]="pendingModelForm" >
+        <div class="logo">
+          <img src="../../assets/logo.png" alt="">
+          <h3>مستر تايلور</h3>
+        </div>
+     
+     
+        <div class="form-group">
+          <!-- modelPicture -->
+          <div class="modelPrice">
+
+            <input required type="number" placeholder="السعر" name="modelPrice" formControlName="modelPrice" #ModelPrice>
+          </div>
+          <div *ngIf="modelPrice?.invalid &&modelPrice?.touched">
+            <small class="text-danger" *ngIf="modelPrice?.errors?.['required']">السعر مطلوب</small>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <button type="submit" class="formBtn btn btn-success" [disabled]="pendingModelForm.invalid" (click)="setPriceAndConfirmPenddingModel(ModelPrice.value)">  تأكيد</button>
+        <button (click)="closeOverlay()" type="button" class="formBtn btn btn-danger">الغاء </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>

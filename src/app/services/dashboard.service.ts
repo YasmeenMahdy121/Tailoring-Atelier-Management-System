@@ -60,7 +60,7 @@ export class DashboardService {
   // add to confirm models
   addToConfirmModels(model:any){
     let key =this.mrTailorDB.createId();
-    this.mrTailorDB.collection("confirmedModels").doc(key).set(model)
+    this.mrTailorDB.collection("confirmedModels").doc(model.modelId).set(model)
   }
   // update user model
   updateUserModel(model:any){
@@ -69,5 +69,19 @@ export class DashboardService {
   // delete pendding model
   deletePenddingModel(model:any){
     this.mrTailorDB.collection('pending').doc(model.modelId).delete()
+  }
+  getConfirmedModels()
+  {
+    let ref= this.mrTailorDB.collection('/confirmedModels', ref =>    ref.orderBy('confirmDate'))
+    return ref.snapshotChanges()
+  }
+
+  addToModels(model:any)
+  {
+    this.mrTailorDB.collection("models").doc(model.modelId).set(model)
+  }
+  deleteConfirmModel(model:any)
+  {
+    this.mrTailorDB.collection('confirmedModels').doc(model.modelId).delete()
   }
 }
