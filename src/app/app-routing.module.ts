@@ -48,7 +48,7 @@ const routes: Routes = [
       {path:'user_search/:keyword',component:UserSearchComponent},
       {path:'feedback',component:FeedbackComponent},
       {path:'custom_reservation',component:UserCustomReservationComponent},
-      {path:'custom_reservation',component:ViewAllModelsComponent}
+      {path:'view_all_models',component:ViewAllModelsComponent}
     ]
   },
   {
