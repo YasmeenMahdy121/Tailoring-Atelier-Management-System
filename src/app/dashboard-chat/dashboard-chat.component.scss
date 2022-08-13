@@ -82,11 +82,19 @@
     .chats{
       height: calc(100% - 75px);
       overflow-y: scroll;
+      align-content: flex-start;
       &::-webkit-scrollbar {
         width: 6px;
       }
       &::-webkit-scrollbar-thumb {
         box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+      .chat-tab{
+        cursor: pointer;
+        &:hover{
+          transition: .3s;
+          background-color: #e9d4d4;
+        }
       }
       .user-img{
         width: 40px;
@@ -228,4 +236,14 @@
       }
     }
   }
+}
+.unselected-chat{
+  padding: 150px 50px;
+  font-size: 50px;
+  font-weight: 600;
+  color: rgb(173, 173, 173);
+  text-transform: rotateZ(-25deg);
+  background: url('../../assets/chat.jpg') center center no-repeat;
+  background-size: cover;
+  font-family: 'El Messiri', sans-serif;
 }

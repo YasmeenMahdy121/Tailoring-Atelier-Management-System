@@ -1,5 +1,5 @@
 <header class="">
-    
+
     <table class="table table-light table-responsive-md text-center mt-5">
         <thead>
           <tr>
@@ -13,27 +13,28 @@
         </thead>
         <tbody>
           <!-- will loop on this depending on the array of models get from firebase -->
-          <tr class="w-100">
-            <td scope="row">1</td>
-            <td><img src="../assets/model.jpeg" width="80" height="80" alt="not_found" ></td>
-            <td>بلوزة</td>
-            <td>50</td>
-            <td>  
-                  2
+          <tr *ngFor="let model of bestSellingModels;let i =index" class="w-100">
+            <td scope="row">{{i+1}}</td>
+            <td><img [src]=model.img width="80" height="80" alt="not_found" ></td>
+            <td>{{model.modelType}}</td>
+            <td>{{model.price}}</td>
+            <td>
+              {{model.selledQuantity}}
                 </td>
-            <td>  
-              <i class="fa far fas fa-star text-warning "></i>
-          <i class="fa far fas fa-star text-warning "></i>
-          <i class="fa far fas fa-star text-warning "></i>
-          <i class="fa far fas fa-star text-warning "></i>
-                </td>
-            
+            <td>
+              <ng-rating-bar
+              [(value)]="model.rating"
+              [ratingCount]="5"
+              [disabled]="true"
+              ></ng-rating-bar>
+            </td>
+
           </tr>
           <!-- end row -->
-  
+
         </tbody>
       </table>
-  
+
   </header>
-  
+
 <!-- make table and loop on row depending on the array of models get from firebase and get best selling-->

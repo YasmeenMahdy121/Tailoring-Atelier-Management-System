@@ -29,17 +29,18 @@ cofirmedModels:any[]=[]
       type:'exist',
       date: new Date().getTime()
       }
-      delete model.confirmDate 
-      delete model.reservationDate  
+      delete model.confirmDate
+      delete model.reservationDate
       // update in user models
       this.dashboardServices.updateUserModel(model)
       // delete it from pendding
        this.dashboardServices.deleteConfirmModel(model)
        delete model.clientInfo
+       delete model.state
           // add to  models
        this.dashboardServices.addToModels(model)
        console.log(model);
-       
+
    }
   ngOnInit(): void {
   }

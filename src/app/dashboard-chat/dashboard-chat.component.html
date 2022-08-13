@@ -3,28 +3,30 @@
     <i class="fa-solid fa-users ms-4"></i>
     <div class="d-flex flex-column">
       العملاء
-      <span>6 محادثات</span>
+      <span>{{chatLength}} محادثات</span>
     </div>
   </div>
-  <div class="col-md-8 d-flex p-3 pe-4 align-items-center justify-content-between">
-    <div class="d-flex align-items-start">
-      <img src="../assets/avatar.png" class="user-img" alt="">
-      <div class="d-flex flex-column pe-4">
-        ياسمين مهدي
-        <span class="pt-2 d-flex align-items-center gap-2">متصل الان <div class="online-dot bg-success"></div></span>
-      </div>
-    </div>
-    <!-- dropdown -->
-    <div class="menu-nav">
-      <!-- <div class="menu-item">click the 3 dots=></div> -->
-      <div class="dropdown-container" tabindex="-1">
-        <div class="three-dots"></div>
-        <div class="dropdown">
-          <a href="#"><div>حذف المحادثة</div></a>
+  <div class="col-md-8">
+    <div *ngIf="currentUser" class="d-flex p-3 pe-4 align-items-center justify-content-between">
+      <div class="d-flex align-items-start">
+        <img src="../assets/avatar.png" class="user-img" alt="">
+        <div class="d-flex flex-column pe-4">
+          {{currentUser}}
+          <span class="pt-2 d-flex align-items-center gap-2">متصل الان <div class="online-dot bg-success"></div></span>
         </div>
       </div>
+      <!-- dropdown -->
+      <div class="menu-nav">
+        <!-- <div class="menu-item">click the 3 dots=></div> -->
+        <div class="dropdown-container" tabindex="-1">
+          <div class="three-dots"></div>
+          <div class="dropdown">
+            <a href="#"><div>حذف المحادثة</div></a>
+          </div>
+        </div>
+      </div>
+      <!-- end dropdown -->
     </div>
-    <!-- end dropdown -->
   </div>
 </div>
 <div class="row chat-body border-bottom m-auto">
@@ -37,102 +39,38 @@
     </div>
     <!-- conversations -->
     <div class="row m-0 chats">
-      <div class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center active-chat">
+      <div (click)="getCurrentChat(userId)" *ngFor="let userId of usersIds" class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center chat-tab" [ngClass]="{'new-messages':userChats[userId]?.userChat[userChats[userId].userChat.length-1].type=='new'&&userChats[userId]?.userChat[userChats[userId].userChat.length-1].from=='user'}">
         <div class="d-flex align-items-start w-75">
           <img src="../assets/avatar.png" class="user-img" alt="">
           <div class="d-flex flex-column pe-4 w-75">
-          <span class="user-nمe">ياسمين مهدي</span>
-          <span class="pt-1 d-flex align-items-center gap-2 user-message">السلام عليكمالسلام عليكمالسلام عليكم السلام عليكم</span>
+          <span class="user-n">{{userChats[userId]?.userName}}</span>
+          <span class="pt-1 d-flex align-items-center gap-2 user-message">{{userChats[userId]?.userChat[userChats[userId].userChat.length-1].message}}</span>
         </div>
         </div>
-        <span class="message-time text-start d-block w-25">02:35 م</span>
-      </div>
-      <div class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center">
-        <div class="d-flex align-items-start w-75">
-          <img src="../assets/avatar.png" class="user-img" alt="">
-          <div class="d-flex flex-column pe-4 w-75">
-          <span class="user-nمe">ياسمين مهدي</span>
-          <span class="pt-1 d-flex align-items-center gap-2 user-message">السلام عليكمالسلام عليكمالسلام عليكم السلام عليكم</span>
-        </div>
-        </div>
-        <span class="message-time text-start d-block w-25">02:35 م</span>
-      </div>
-      <div class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center new-messages">
-        <div class="d-flex align-items-start w-75">
-          <img src="../assets/avatar.png" class="user-img" alt="">
-          <div class="d-flex flex-column pe-4 w-75">
-          <span class="user-nمe">ياسمين مهدي</span>
-          <span class="pt-1 d-flex align-items-center gap-2 user-message">السلام عليكمالسلام عليكمالسلام عليكم السلام عليكم</span>
-        </div>
-        </div>
-        <span class="message-time text-start d-block w-25">02:35 م</span>
-      </div>
-      <div class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center">
-        <div class="d-flex align-items-start w-75">
-          <img src="../assets/avatar.png" class="user-img" alt="">
-          <div class="d-flex flex-column pe-4 w-75">
-          <span class="user-nمe">ياسمين مهدي</span>
-          <span class="pt-1 d-flex align-items-center gap-2 user-message">السلام عليكمالسلام عليكمالسلام عليكم السلام عليكم</span>
-        </div>
-        </div>
-        <span class="message-time text-start d-block w-25">02:35 م</span>
-      </div>
-      <div class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center">
-        <div class="d-flex align-items-start w-75">
-          <img src="../assets/avatar.png" class="user-img" alt="">
-          <div class="d-flex flex-column pe-4 w-75">
-          <span class="user-nمe">ياسمين مهدي</span>
-          <span class="pt-1 d-flex align-items-center gap-2 user-message">السلام عليكمالسلام عليكمالسلام عليكم السلام عليكم</span>
-        </div>
-        </div>
-        <span class="message-time text-start d-block w-25">02:35 م</span>
-      </div>
-      <div class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center">
-        <div class="d-flex align-items-start w-75">
-          <img src="../assets/avatar.png" class="user-img" alt="">
-          <div class="d-flex flex-column pe-4 w-75">
-          <span class="user-nمe">ياسمين مهدي</span>
-          <span class="pt-1 d-flex align-items-center gap-2 user-message">السلام عليكمالسلام عليكمالسلام عليكم السلام عليكم</span>
-        </div>
-        </div>
-        <span class="message-time text-start d-block w-25">02:35 م</span>
+        <span class="message-time text-start d-block w-25">{{userChats[userId]?.userChat[userChats[userId].userChat.length-1].date | date:"HH:mm a"}}</span>
       </div>
     </div>
   </div>
   <!-- start chat -->
   <div class="col-md-8 chat p-0 m-0">
-    <div class="row px-5 m-0 messages">
-      <div class="col-12 user-message-chat">
-        <span class="message-time">02:35 م</span>
-        <div class="message">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و </div>
+    <div *ngIf="currentUser">
+      <div class="row px-5 m-0 messages">
+        <div *ngFor="let message of currentChat" class="col-12" [ngClass]="{'admin-message-chat' : message.from=='admin', 'user-message-chat' : message.from=='user'}">
+          <span *ngIf="message.from=='user'" class="message-time">{{message.date | date:"HH:mm a"}}</span>
+            <div class="message">{{message.message}}</div>
+            <span *ngIf="message.from!='user'" class="message-time">{{message.date | date:"HH:mm a"}}</span>
+        </div>
       </div>
-      <div class="col-12 admin-message-chat">
-        <div class="message">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و </div>
-        <span class="message-time">02:35 م</span>
-      </div>
-      <div class="col-12 user-message-chat">
-        <span class="message-time">02:35 م</span>
-        <div class="message">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از  </div>
-      </div>
-      <div class="col-12 admin-message-chat">
-        <div class="message">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان  و </div>
-        <span class="message-time">02:35 م</span>
-      </div>
-      <div class="col-12 admin-message-chat">
-        <div class="message">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت و </div>
-        <span class="message-time">02:35 م</span>
-      </div>
-      <div class="col-12 admin-message-chat">
-        <div class="message">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و </div>
-        <span class="message-time">02:35 م</span>
+      <!-- end chat -->
+      <div class="border-top d-flex justify-content-center write-message-form">
+        <form [formGroup]="chatForm" (ngSubmit)="sendMessage(message.value)" class="d-flex">
+          <input type="text" placeholder="اكتب..." formControlName="message" #message>
+          <button type="submit" [disabled]="chatForm.invalid"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
       </div>
     </div>
-    <!-- end chat -->
-    <div class="border-top d-flex justify-content-center write-message-form">
-      <form action="" class="d-flex">
-        <input type="text" placeholder="اكتب...">
-        <button><i class="fa-solid fa-paper-plane"></i></button>
-      </form>
+    <div *ngIf="!currentUser" class="h-100 unselected-chat">
+      ابدا المحادثة الأن
     </div>
   </div>
 </div>

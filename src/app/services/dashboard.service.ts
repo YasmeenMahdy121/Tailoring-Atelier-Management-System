@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,12 @@ export class DashboardService {
     ref.delete()
     this.router.navigate(["/dashboard/atelier_models"]);
   }
+  // best selling models
+  bestSellingModels()
+  {
+   let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('selledQuantity','desc'))
+    return ref.snapshotChanges()
+  }
   // get pendding models
   getPenddingModels()
   {
@@ -59,7 +66,6 @@ export class DashboardService {
   }
   // add to confirm models
   addToConfirmModels(model:any){
-    let key =this.mrTailorDB.createId();
     this.mrTailorDB.collection("confirmedModels").doc(model.modelId).set(model)
   }
   // update user model
@@ -84,4 +90,30 @@ export class DashboardService {
   {
     this.mrTailorDB.collection('confirmedModels').doc(model.modelId).delete()
   }
+  getAllClients(){
+    return this.mrTailorDB.collection('mrTailorClients').snapshotChanges()
+  }
+  getUserChat(currentUserId:any):Observable<any>{
+    return this.mrTailorDB.collection(`/chats/${currentUserId}/userChat`, ref =>    ref.orderBy('date')).snapshotChanges()
+  }
+  updateUserChat(userId:any){
+    this.mrTailorDB.collection(`/chats/${userId}/userChat`).get().forEach((data)=>{
+      data.forEach((message)=>{
+        let msg:any = message.data()
+        msg.type = 'old'
+        this.mrTailorDB.collection(`/chats/${userId}/userChat`).doc(message.id).update(msg)
+      })
+    })
+  }
+    // send user message to firebase
+    sendMessage(currentUserId:any, message:any){
+      let messageObj = {
+        from:'admin',
+        message,
+        date:new Date().getTime(),
+        type:'new'
+      }
+      let id =this.mrTailorDB.createId();
+      this.mrTailorDB.collection(`/chats/${currentUserId}/userChat`).doc(id).set(messageObj)
+    }
 }

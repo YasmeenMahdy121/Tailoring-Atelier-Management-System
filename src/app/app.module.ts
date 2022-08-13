@@ -47,6 +47,7 @@ import { environment } from 'src/environments/environment';
 import { UserCustomReservationComponent } from './user-custom-reservation/user-custom-reservation.component';
 import { SearchPipe } from './search.pipe';
 import { ViewAllModelsComponent } from './view-all-models/view-all-models.component';
+import { NgRatingBarModule } from 'ng-rating-bar';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { ViewAllModelsComponent } from './view-all-models/view-all-models.compon
     MatSlideToggleModule,
     AngularFireModule.initializeApp(environment.firebase),
     MatSliderModule,
-    MatCardModule
+    MatCardModule,
+    NgRatingBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

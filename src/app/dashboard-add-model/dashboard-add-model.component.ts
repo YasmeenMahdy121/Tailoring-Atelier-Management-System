@@ -12,7 +12,7 @@ export class DashboardAddModelComponent implements OnInit {
 
   constructor(private DashboardService:DashboardService, private fb:FormBuilder , private router:Router) { }
 
-  addModelForm= this.fb.group({
+  addModelForm = this.fb.group({
     modelType : ['',[Validators.required]],
     ageCategory:['',[Validators.required]],
     modelPrice : ['',[Validators.required]],
