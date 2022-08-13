@@ -15,7 +15,7 @@ table tbody tr td
 
  svg
 {
-    
+
     transition-property: transform;
     transition-duration: 0.5s;
 }
@@ -23,7 +23,7 @@ table tbody tr td
 table tbody tr button
 {
     background-color: #c3453c;
-    
+
     border: #c3453c;
     color: white;
     box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
@@ -32,7 +32,7 @@ table tbody tr button
 .add-model button
 {
     background-color: #c3453c;
-    
+
     border: #c3453c;
     color: white;
     box-shadow:0 4px 8px 0 rgb(0 0 0 / 20%);
@@ -57,8 +57,8 @@ table tbody tr button
 
 
 //////////////////////////////////@at-root
-/// 
-/// 
+///
+///
 .overlay
 {
     top: 0;
@@ -68,7 +68,7 @@ table tbody tr button
     background-color: rgb(10, 10, 10,.2);
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +105,7 @@ table tbody tr button
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: #0f5264;
+        background-color: #1b0502;
         opacity: .9;
       }
       form{
@@ -178,7 +178,7 @@ table tbody tr button
 
         input{
 
-          background-color: transparent;
+          background-color: rgba(214, 213, 213, 0.788);
           position: absolute;
          outline: none;
          padding: 10px;
