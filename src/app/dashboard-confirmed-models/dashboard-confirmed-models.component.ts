@@ -25,6 +25,7 @@ cofirmedModels:any[]=[]
     // update state to confirm and add confirm date
     model = {
       ...model,
+      selledQuantity:++model.selledQuantity,
       state: 'implemented',
       type:'exist',
       date: new Date().getTime()
@@ -39,7 +40,6 @@ cofirmedModels:any[]=[]
        delete model.state
           // add to  models
        this.dashboardServices.addToModels(model)
-       console.log(model);
 
    }
   ngOnInit(): void {

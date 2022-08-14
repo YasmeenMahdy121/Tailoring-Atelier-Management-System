@@ -1,5 +1,5 @@
 <div class="card pt-2 my-2" style="height: 26rem;" >
-    <div class="product-display-img mt-2"> 
+    <div class="product-display-img mt-2">
     <img class="product-card-img" src={{modelInfo.img}}>
     </div>
     <div class="row card-body">
@@ -9,7 +9,7 @@
         <div class="col-md-12 d-flex justify-content-between px-2 m-0">
             <h4 class="card-title ">{{modelInfo.price}} ج</h4>
             <ng-rating-bar
-            [(value)]="modelInfo.rate"
+            [(value)]="rateValue"
             [ratingCount]="5"
             [disabled]="true"
             ></ng-rating-bar>
@@ -22,7 +22,7 @@
     </div>
     <div *ngIf="flag" class="rating d-flex flex-column justify-content-center align-items-center" >
         <ng-rating-bar [styles]="{fontSize:'40px'}"
-        [(value)]="rateValue"
+        [(value)]="rateValueChanges"
         [ratingCount]="5"
         ></ng-rating-bar>
         <button class="btn btn-dark" (click)="ratingDone(modelInfo)">قيم</button>

@@ -2,23 +2,23 @@
     <div class="row">
         <div class="preview col-md-6 gx-5">
 
-            <div class="preview-pic tab-content">
-                <div class="tab-pane active" id="pic-1">
-                    <img class="w-100" src="tailorMan.png" />
+            <div>
+                <div id="pic-1">
+                    <img class="w-100" [src]="modelDetails?.img" />
                 </div>
             </div>
         </div>
         <div class="details col-md-6 d-flex flex-column justify-content-between">
             <div id="text">
-                <h2 class="product-title">men's shoes fashion</h2>
+                <h2 class="product-title">{{modelDetails?.modelType}}</h2>
                 <div class="rating">
                     <ng-rating-bar [(value)]="rateValue" [ratingCount]="5" [disabled]="true"></ng-rating-bar>
                     <br>
-                    <p class="review-no">0 reviews</p>
+                    <p class="review-no pt-2">{{(reviewsNum)+' من الأراء'}}</p>
                 </div>
-                <h2 class="price">180 ج</h2>
+                <h2 class="price">{{modelDetails?.price}} ج</h2>
                 <div class="row">
-                    
+
                     <div class="col-3">
                         <input type="radio" name="data" id="pic-2" style="display: none;">
                         <label for="pic-2" class="model-size"> <img class="w-100" src="155.jpg" alt="Hobbies"> </label>
@@ -39,7 +39,7 @@
 
             </div>
             <div class="action">
-                <button class="add-to-cart btn btn-default">احجز الان</button>
+                <button class="add-to-cart btn btn-default" (click)="reserveModel()">احجز الان</button>
                 <button class="like btn btn-default" routerLink="/user_access/custom_reservation">لحجز موديل
                     خاص</button>
             </div>

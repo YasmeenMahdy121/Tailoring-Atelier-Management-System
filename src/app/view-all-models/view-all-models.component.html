@@ -1,1 +1,9 @@
-<p>view-all-models works!</p>
+<div class="container" style="margin-top: 6rem;">
+  <div class="category">
+    <div class="row">
+        <div class="col-md-6 col-lg-3" *ngFor="let model of allModels">
+            <app-model-card [modelInfo]="model"></app-model-card>
+        </div>
+    </div>
+</div>
+</div>

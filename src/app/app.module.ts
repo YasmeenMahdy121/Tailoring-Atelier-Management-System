@@ -8,7 +8,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SigninComponent } from './signin/signin.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HomeComponent } from './home/home.component';
-import { CategoryComponent } from './category/category.component';
 import { ModelCardComponent } from './model-card/model-card.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackFormComponent } from './feedback-form/feedback-form.component';
@@ -57,7 +56,6 @@ import { SearchUserChatPipe } from './search-user-chat.pipe';
     SigninComponent,
     RegistrationComponent,
     HomeComponent,
-    CategoryComponent,
     ModelCardComponent,
     FeedbackComponent,
     FeedbackFormComponent,

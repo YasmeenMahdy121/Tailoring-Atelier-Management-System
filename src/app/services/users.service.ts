@@ -16,6 +16,12 @@ export class UsersService {
    let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('date'))
     return ref.snapshotChanges()
   }
+    // get all Models in firebase
+    getAllModelsOrderedBySelling()
+    {
+     let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('selledQuantity','desc'))
+      return ref.snapshotChanges()
+    }
 
   // add new model
   imgUrlP1:string = 'https://firebasestorage.googleapis.com/v0/b/iti-graduation-project-d5b5e.appspot.com/o'
@@ -73,5 +79,19 @@ export class UsersService {
   updateModel(updatedModel:any){
     let ref = this.mrTailorDB.collection("models").doc(updatedModel.modelId)
     ref.update(updatedModel)
+  }
+  reserveExistModel(newModel:any){
+     this.mrTailorDB.collection("/mrTailorClients").doc(newModel.clientInfo.clientId).snapshotChanges().subscribe((data)=>{
+      let model = {
+        ...newModel,
+        clientInfo:data.payload.data(),
+        reservationDate: new Date().getTime(),
+        state: 'pending'
+      }
+        this.mrTailorDB.collection("pending").doc(model.modelId).set(model)
+        this.mrTailorDB.collection(`/usersModels/${model.clientInfo.clientId}/userModels`).doc(model.modelId).set(model)
+        model.note='new'
+        this.mrTailorDB.collection("notification").doc(model.modelId).set(model)
+     })
   }
 }

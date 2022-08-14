@@ -10,6 +10,7 @@ import { UsersService } from '../services/users.service';
 })
 export class ModelCardComponent implements OnInit {
   @Input() modelInfo: any;
+  rateValueChanges: number = 0;
   rateValue: number = 0;
   flag: boolean = false;
   loggedInInfo: any;
@@ -20,6 +21,10 @@ export class ModelCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let base =  (this.modelInfo.rateOut1+this.modelInfo.rateOut2+this.modelInfo.rateOut3+this.modelInfo.rateOut4+this.modelInfo.rateOut5)
+      if(base){
+        this.rateValue=Math.round(((this.modelInfo.rateOut1*1)+(this.modelInfo.rateOut2*2)+(this.modelInfo.rateOut3*3)+(this.modelInfo.rateOut4*4)+(this.modelInfo.rateOut5*5))/base)
+      }
   }
   addRating() {
     this.flag = true;
@@ -34,13 +39,13 @@ export class ModelCardComponent implements OnInit {
         }
       })
       if (isExist) {
-        modelInfo['rateOut'+ this.rateValue]++
+        modelInfo['rateOut'+ this.rateValueChanges]++
         this.usersService.updateModel(modelInfo);
         this.flag = false;
       }
       else {
         this.flag = false;
-        this.rateValue = 0
+        this.rateValueChanges = 0
       }
     })
 
