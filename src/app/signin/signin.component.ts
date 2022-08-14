@@ -16,8 +16,7 @@ export class SigninComponent implements OnInit {
   }
 
   sgininForm= this.fb.group({
-    email : ['',[Validators.required,Validators.email]],
-    // Validators.pattern('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/')
+    email : ['',[Validators.required,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]],
     password : ['',[Validators.required,Validators.minLength(8)]],
     isadmin:[false],
   })

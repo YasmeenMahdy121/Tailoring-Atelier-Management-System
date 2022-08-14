@@ -1,4 +1,70 @@
-<p>home works!</p>
+<div class="container ">
+    <section class="mx-0 p-0" id="banner">
+        <img src="https://img.freepik.com/premium-vector/tailoring-atelier-flat-illustration-with-professional-tailor-taking-measurements-from-client_1284-58857.jpg?w=996"
+            alt="banner_image" class="banner_image">
+        <div class="header-text">
 
-<!-- will loop on this 4 times on the array of category come from firebase -->
-<app-category></app-category>
+            <a class="btn btn-dark rounded-0 p-3" routerLink="/user_access/view_all_models/allModels" id="button">جميع
+                الموديلات <i class="fas fa-arrow-left   "></i></a>
+        </div>
+    </section>
+
+    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <h2>الموديلات الأكتر مبيعا</h2>
+
+        <a routerLink="/user_access/view_all_models/best_selling">مشاهدة الكل <i class="fas fa-chevron-left"></i></a>
+    </div>
+
+    <div class="category">
+        <div class="row">
+            <div class="col-md-6 col-lg-3" *ngFor="let model of allModels |slice:0:4;">
+                <app-model-card [modelInfo]="model"></app-model-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
+        <h2>الفساتين </h2>
+
+        <a routerLink="/user_access/view_all_models/dress">مشاهدة الكل <i class="fa-solid fa-circle-arrow-left"></i></a>
+    </div>
+
+
+    <div class="category">
+        <div class="row">
+            <div class="col-md-6 col-lg-3" *ngFor="let model of dress |slice:0:4;">
+                <app-model-card [modelInfo]="model"></app-model-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
+        <h2>الجواكت </h2>
+
+        <a routerLink="/user_access/view_all_models/jacket">مشاهدة الكل <i
+                class="fa-solid fa-circle-arrow-left"></i></a>
+    </div>
+
+    <div class="category">
+        <div class="row">
+            <div class="col-md-6 col-lg-3" *ngFor="let model of jacket |slice:0:4;">
+                <app-model-card [modelInfo]="model"></app-model-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
+        <h2>الجيب </h2>
+
+        <a routerLink="/user_access/view_all_models/jaib">مشاهدة الكل <i class="fa-solid fa-circle-arrow-left"></i></a>
+    </div>
+
+    <div class="category">
+        <div class="row">
+            <div class="col-md-6 col-lg-3" *ngFor="let model of jaib |slice:0:4;">
+                <app-model-card [modelInfo]="model"></app-model-card>
+            </div>
+        </div>
+    </div>
+
+</div>

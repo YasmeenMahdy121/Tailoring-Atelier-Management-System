@@ -15,9 +15,9 @@ export class RegistrationComponent implements OnInit {
   }
 
   registrationForm= new FormGroup({
-    userName : new FormControl('',Validators.required),
-    email : new FormControl('',[Validators.required,Validators.email]),
-    phone : new FormControl('',[Validators.required,Validators.minLength(11)]),
+    userName : new FormControl('',[Validators.required,Validators.pattern(/^[\u0600-\u06FF]{2,} [\u0600-\u06FF]{2,}$/)]),
+    email : new FormControl('',[Validators.required,Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]),
+    phone : new FormControl('',[Validators.required,Validators.minLength(11),Validators.pattern(/^(01)(0|1|2|5)[0-9]{8}$/)]),
     password : new FormControl('',[Validators.required,Validators.minLength(8)]),
     isadmin: new FormControl(false),
   })

@@ -44,12 +44,12 @@ const routes: Routes = [
     children:[
       {path:'',redirectTo:'home', pathMatch:'full'},
       {path:'home',canActivate:[UserAccessGuard],component:HomeComponent},
-      {path:'model_details',canActivate:[UserAccessGuard],component:ModelDetailsComponent},
+      {path:'model_details/:id',canActivate:[UserAccessGuard],component:ModelDetailsComponent},
       {path:'user_profile',canActivate:[UserAccessGuard],component:UserProfileComponent},
       {path:'user_search/:keyword',canActivate:[UserAccessGuard],component:UserSearchComponent},
       {path:'feedback',canActivate:[UserAccessGuard],component:FeedbackComponent},
       {path:'custom_reservation',canActivate:[UserAccessGuard],component:UserCustomReservationComponent},
-      {path:'view_all_models',canActivate:[UserAccessGuard],component:ViewAllModelsComponent}
+      {path:'view_all_models/:category',canActivate:[UserAccessGuard],component:ViewAllModelsComponent}
     ]
   },
   {
