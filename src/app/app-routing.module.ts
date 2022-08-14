@@ -25,53 +25,54 @@ import { UserCustomReservationComponent } from './user-custom-reservation/user-c
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { ViewAllModelsComponent } from './view-all-models/view-all-models.component';
-
+import { UserAccessGuard } from './user-access.guard';
+import { AdminAccessGuard } from './admin-access.guard';
 const routes: Routes = [
   {
     path:'',
     component:IntroPageComponent,
     children:[
-      {path:'',component:LandingPageComponent},
+      {path:'',redirectTo:'landing', pathMatch:'full'},
       {path:'landing',component:LandingPageComponent},
       {path:'signin',component:SigninComponent},
       {path:'registration',component:RegistrationComponent},
     ]
   },
   {
-    path:'user_access',
+    path:'user_access',canActivate:[UserAccessGuard],
     component:UserAccessComponent,
     children:[
-      {path:'',component:HomeComponent},
-      {path:'home',component:HomeComponent},
-      {path:'model_details',component:ModelDetailsComponent},
-      {path:'user_profile',component:UserProfileComponent},
-      {path:'user_search/:keyword',component:UserSearchComponent},
-      {path:'feedback',component:FeedbackComponent},
-      {path:'custom_reservation',component:UserCustomReservationComponent},
-      {path:'view_all_models',component:ViewAllModelsComponent}
+      {path:'',redirectTo:'home', pathMatch:'full'},
+      {path:'home',canActivate:[UserAccessGuard],component:HomeComponent},
+      {path:'model_details',canActivate:[UserAccessGuard],component:ModelDetailsComponent},
+      {path:'user_profile',canActivate:[UserAccessGuard],component:UserProfileComponent},
+      {path:'user_search/:keyword',canActivate:[UserAccessGuard],component:UserSearchComponent},
+      {path:'feedback',canActivate:[UserAccessGuard],component:FeedbackComponent},
+      {path:'custom_reservation',canActivate:[UserAccessGuard],component:UserCustomReservationComponent},
+      {path:'view_all_models',canActivate:[UserAccessGuard],component:ViewAllModelsComponent}
     ]
   },
   {
-    path:'dashboard',
+    path:'dashboard',canActivate:[AdminAccessGuard],
     component:DashboardComponent,
     children:[
-          {path:'',component:DashboardAllModelsWithCrudOPerationComponent},
+          {path:'',redirectTo:'atelier_models', pathMatch:'full'},
           {
-            path:'atelier_models',
+            path:'atelier_models',canActivate:[AdminAccessGuard],
             component:DashboardAllModelsWithCrudOPerationComponent,
             children:[
-              {path:'add_model',component:DashboardAddModelComponent},
-              {path:'update_model/:id',component:DashboardUpdateModelComponent},
-              {path:'delete_model/:id',component:DashboardDeleteModelComponent},
+              {path:'add_model',canActivate:[AdminAccessGuard],component:DashboardAddModelComponent},
+              {path:'update_model/:id',canActivate:[AdminAccessGuard],component:DashboardUpdateModelComponent},
+              {path:'delete_model/:id',canActivate:[AdminAccessGuard],component:DashboardDeleteModelComponent},
             ]
           },
-          {path:'best_selling',component:DashboardBestSellingModelsComponent},
-          {path:'pending_models',component:DashboardPendingModelsComponent},
-          {path:'confirmed_models',component:DashboardConfirmedModelsComponent},
-          {path:'chat',component:DashboardChatComponent},
-          {path:'searsh_user_models/:keyword',component:DashboardSearshUserModelsComponent},
-          {path:'notifications',component:DashboardNotificationsComponent},
-          {path:'feedbacks',component:DashboardFeedbackComponent},
+          {path:'best_selling',canActivate:[AdminAccessGuard],component:DashboardBestSellingModelsComponent},
+          {path:'pending_models',canActivate:[AdminAccessGuard],component:DashboardPendingModelsComponent},
+          {path:'confirmed_models',canActivate:[AdminAccessGuard],component:DashboardConfirmedModelsComponent},
+          {path:'chat',canActivate:[AdminAccessGuard],component:DashboardChatComponent},
+          {path:'searsh_user_models/:keyword',canActivate:[AdminAccessGuard],component:DashboardSearshUserModelsComponent},
+          {path:'notifications',canActivate:[AdminAccessGuard],component:DashboardNotificationsComponent},
+          {path:'feedbacks',canActivate:[AdminAccessGuard],component:DashboardFeedbackComponent},
 
 
 
@@ -82,6 +83,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  
+
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -48,6 +48,7 @@ import { UserCustomReservationComponent } from './user-custom-reservation/user-c
 import { SearchPipe } from './search.pipe';
 import { ViewAllModelsComponent } from './view-all-models/view-all-models.component';
 import { NgRatingBarModule } from 'ng-rating-bar';
+import { SearchUserChatPipe } from './search-user-chat.pipe';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { NgRatingBarModule } from 'ng-rating-bar';
     DashboardFeedbackComponent,
     UserCustomReservationComponent,
     SearchPipe,
-    ViewAllModelsComponent
+    ViewAllModelsComponent,
+    SearchUserChatPipe
   ],
   imports: [
     BrowserModule,

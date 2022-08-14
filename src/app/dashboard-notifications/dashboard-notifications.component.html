@@ -1,14 +1,15 @@
 <div class="notification container">
-    <div class="notification-content  row">
+    <div class="notification-content  " >
        
 
+      <div class="row" *ngFor="let note of usersNotification;let i = index">
         <div class="col-md-8 d-flex  align-items-center">
             <div class="notification-img  mx-5">
                 <img src="../assets/notification-img.png" class="rounded-circle"  width="40" height="40" alt="not_found" >
             </div>
             <div class="notification-head">
-                <h1>ياسمين مهدى</h1>
-                <p class="lead text-muted">قامت بحجز موديل</p> 
+                <h1> {{note.clientInfo.name}}</h1>
+                <p class="lead text-muted">قامت بحجز {{note.modelType}}</p> 
             </div>
             <!-- <div class="notification-text">
                 <p class="lead text-muted">قامت بحجز موديل</p> 
@@ -16,27 +17,13 @@
         </div>
 
         <div class="col-md-4 notification-date d-flex justify-content-end align-items-center">
-            <p class="lead ">منذ ساعتين</p>
+            <p class="lead "> {{note.reservationDate|date:'hh:mm a'}}</p>
         </div>
-        <div style="width: 100%;background-color: rgb(176, 170, 170,.2);height: 1px;margin: 15px 0px;"></div>
+        <div *ngIf="usersNotification.length != i+1" style="width: 100%;background-color: rgb(176, 170, 170,.2);height: 1px;margin: 15px 0px;"></div>
+      </div>
 
         
-        <div class="col-md-8 d-flex  align-items-center">
-            <div class="notification-img  mx-5">
-                <img src="../assets/notification-img.png" class="rounded-circle" width="40" height="40" alt="not_found" >
-            </div>
-            <div class="notification-head">
-                <h1>ياسمين مهدى</h1>
-                <p class="lead text-muted">قامت بحجز موديل</p> 
-            </div>
-            <!-- <div class="notification-text">
-                <p class="lead text-muted">قامت بحجز موديل</p> 
-            </div> -->
-        </div>
-
-        <div class="col-md-4 notification-date d-flex justify-content-end align-items-center">
-            <p class="lead ">منذ ساعتين</p>
-        </div>
+    
        
     </div>
 

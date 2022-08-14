@@ -116,4 +116,21 @@ export class DashboardService {
       let id =this.mrTailorDB.createId();
       this.mrTailorDB.collection(`/chats/${currentUserId}/userChat`).doc(id).set(messageObj)
     }
+
+  // get notification 
+  showNotification():Observable<any>
+  {
+    return this.mrTailorDB.collection(`/notification`, ref =>    ref.orderBy('reservationDate','desc')).snapshotChanges()
+  }
+   // updat notification 
+   updatNotification()
+   {
+    this.mrTailorDB.collection(`/notification`).get().forEach((data)=>{
+      data.forEach((notification)=>{
+        let notif:any = notification.data()
+        notif.note = 'old'
+        this.mrTailorDB.collection(`/notification`).doc(notification.id).update(notif)
+      })
+    })
+   }
 }

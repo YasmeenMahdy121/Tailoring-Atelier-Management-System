@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardChatComponent implements OnInit {
 
   constructor(private dashboardServices:DashboardService,  private fb:FormBuilder) { }
-
+  term:any=""
   currentUserId:any
   userChats:any = {}
   usersIds:any = []

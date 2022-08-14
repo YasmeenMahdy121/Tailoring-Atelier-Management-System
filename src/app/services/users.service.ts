@@ -37,12 +37,15 @@ export class UsersService {
           model.modelId =this.mrTailorDB.createId();
           this.mrTailorDB.collection("pending").doc(model.modelId).set(model)
           this.mrTailorDB.collection(`/usersModels/${model.clientInfo.clientId}/userModels`).doc(model.modelId).set(model)
+          model.note='new'
+          this.mrTailorDB.collection("notification").doc(model.modelId).set(model)
        })
 
     }
 
     )
   }
+
   // get model by id
   getModelById(modelID:any){
     let ref = this.mrTailorDB.collection("/models").doc(modelID)

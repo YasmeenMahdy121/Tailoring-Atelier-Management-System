@@ -29,9 +29,7 @@ export class UserCustomReservationComponent implements OnInit {
   imgUrl:string = ''
 
   ngOnInit(): void {
-    if(!this.loggedInInfo.isLoggedIn){
-      this.router.navigate(['/signin'])
-    }
+    
   }
   // get form values
   get modelType(){
