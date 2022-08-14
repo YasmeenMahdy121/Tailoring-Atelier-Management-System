@@ -18,7 +18,7 @@
                                               <div *ngIf="user['email'].invalid &&  user['email'].touched">
 
                                                   <small class="text-danger" *ngIf="user['email'].errors?.['required']">الاميل مطلوب </small>
-                                                  <small class="text-danger" *ngIf="user['email'].errors?.['email']"> الاميل يجب ان يكون بهذا الشكل  Example@go.com </small>
+                                                  <small class="text-danger" *ngIf="user['email'].errors?.['pattern']"> الاميل يجب ان يكون بهذا الشكل  Example@go.com </small>
                                           <!-- <label class="form-label" for="form3Example1c"> الإسم</label> -->
                                           <!-- <i class="fas fa-user fa-lg me-3 fa-fw"></i> -->
                                       </div>

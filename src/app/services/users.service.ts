@@ -66,5 +66,12 @@ export class UsersService {
   getUserMessages(currentUserId:any):Observable<any>{
      return this.mrTailorDB.collection(`/chats/${currentUserId}/userChat`, ref =>    ref.orderBy('date')).snapshotChanges()
   }
+  getCurrentUsersModels(clientId:any){
+    return this.mrTailorDB.collection(`/usersModels/${clientId}/userModels`).snapshotChanges();
+  }
 
+  updateModel(updatedModel:any){
+    let ref = this.mrTailorDB.collection("models").doc(updatedModel.modelId)
+    ref.update(updatedModel)
+  }
 }

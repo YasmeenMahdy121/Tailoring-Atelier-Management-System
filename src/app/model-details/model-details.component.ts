@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./model-details.component.scss']
 })
 export class ModelDetailsComponent implements OnInit {
-
+rateValue:number=0;
   constructor() { }
 
   ngOnInit(): void {

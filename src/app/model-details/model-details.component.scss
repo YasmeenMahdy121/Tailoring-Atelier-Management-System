@@ -1,0 +1,52 @@
+  .container{
+    margin-top: 5rem;
+  }
+  input[type=radio]:checked+.model-size{
+border: 2px solid black;
+
+  }
+ 
+  .add-to-cart, .like {
+    background: #ff9f1a;
+    padding: 1.2em 1.5em;
+    margin: 0 0 1rem;
+    width: 100%;
+    border: none;
+    text-transform: UPPERCASE;
+    font-weight: bold;
+    color: #fff;
+    -webkit-transition: background .3s ease;
+            transition: background .3s ease; }
+    .add-to-cart:hover, .like:hover {
+      background: #b36800;
+      color: #fff; }
+  #text p{
+    font-weight: bold;
+    font-size:large;
+    color: rgb(145, 144, 144);
+  }
+  h2{
+    font-weight: bold;
+    font-size: xx-large;
+  }
+  .action{
+    button:first-child{
+      background-color: rgba(195, 69, 60, 255);
+    }
+    button:last-child{
+      background-color: #83bece;
+    }
+  }
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(3);
+              transform: scale(3); }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1); } }
+  
+  // /*# sourceMappingURL=style.css.map */
+
+  
