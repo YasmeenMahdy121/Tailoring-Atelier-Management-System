@@ -1,38 +1,40 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { UsersService } from './../services/users.service';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators,FormBuilder } from '@angular/forms';
 import { AbstractControl } from "@angular/forms";
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss']
 })
-export class UserInfoComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) { }
+export class UserInfoComponent implements OnInit , AfterViewInit{
+  loggedInInfo:any
+  userData:any
+
+  constructor(private fb:FormBuilder, private authService:AuthService, private userService: UsersService) {
+    this.authService.loggedInInfo.subscribe((loggedInState)=>{
+      this.loggedInInfo = loggedInState
+    })
+    this.authService.getUserInfo(this.loggedInInfo.currentUserId,this.loggedInInfo.isAdmin).subscribe((userInfo)=>{
+      this.userData = userInfo.payload.data()
+      // console.log(this.userData)
+    })
+  }
 
   ngOnInit(): void {
   }
+  ngAfterViewInit(): void {}
 
-  //
-  @ViewChild('phoneInput') PhoneInput!:ElementRef;
-  @ViewChild('PassInput') passInput!:ElementRef;
-  @ViewChild('confirmPassInput') confirm!:ElementRef;
-
-  handleClear(){
-    // clearing the value
-    this.PhoneInput.nativeElement.value = '';
-    this.passInput.nativeElement.value = '';
-    this.confirm.nativeElement.value = '';
-
-  }
 
   //
   UserInfoForm= this.fb.group({
     phone : new FormControl('',[Validators.required,Validators.minLength(11)]),
     password : new FormControl('',[Validators.required,Validators.minLength(8)]),
     confirmPassword:[''],
-  },{validator:[ConfirmPasswordValidator]});
+  });
 
   get phone(){
     return this.UserInfoForm.get('phone')
@@ -40,23 +42,14 @@ export class UserInfoComponent implements OnInit {
   get password(){
     return this.UserInfoForm.get('password')
   }
-}
-
-export function ConfirmPasswordValidator(control:AbstractControl)
-{
-    console.log('entered')
-    const password= control.get('password');
-    const confirmPassword= control.get('confirmPassword');
-
-    if(password?.pristine ||confirmPassword?.pristine)
-    {
-        return null;
+  upDateUserInfo(){
+    let Data={
+      phone : this.phone?.value ? this.phone?.value : this.userData.phone,
+      password: this.password?.value ? this.password?.value : this.userData.password
     }
+    this.userService.updateUserInfo(Data,this.userData.clientId);
+    this.UserInfoForm.reset()
 
-     else
-     {
-        return password && confirmPassword &&password.value !== confirmPassword.value ?{'misMatch':true} :null;
-
-     }
+  }
 
 }

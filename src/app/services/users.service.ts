@@ -16,12 +16,27 @@ export class UsersService {
    let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('date'))
     return ref.snapshotChanges()
   }
-    // get all Models in firebase
-    getAllModelsOrderedBySelling()
-    {
-     let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('selledQuantity','desc'))
-      return ref.snapshotChanges()
-    }
+  // get all Models in firebase
+  getAllModelsOrderedBySelling()
+  {
+    let ref= this.mrTailorDB.collection('/models', ref =>    ref.orderBy('selledQuantity','desc'))
+    return ref.snapshotChanges()
+  }
+  //  add review used in review-form component
+  addReviews(review:any){
+    return this.mrTailorDB.collection('Reviews').add(review);
+  }
+  //  get all reviews used in feedback-review component
+  getReviews()
+  {
+   let ref= this.mrTailorDB.collection('Reviews')
+    return ref.snapshotChanges()
+  }
+  //  get user info used in profile- info component
+  updateUserInfo(userData:any,userId:any){
+    let ref = this.mrTailorDB.collection("mrTailorClients").doc(userId)
+    ref.update(userData)
+  }
 
   // add new model
   imgUrlP1:string = 'https://firebasestorage.googleapis.com/v0/b/iti-graduation-project-d5b5e.appspot.com/o'

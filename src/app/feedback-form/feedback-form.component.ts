@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import {UsersService} from '../services/users.service';
 
 @Component({
   selector: 'app-feedback-form',
@@ -7,8 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackFormComponent implements OnInit {
 
-  constructor() { }
+  loggedInInfo:any
+  userName:any
+  constructor(private userService:UsersService, private authService:AuthService) {
+    this.authService.loggedInInfo.subscribe((loggedInState)=>{
+      this.loggedInInfo = loggedInState
+    })
+    this.authService.getUserInfo(this.loggedInInfo.currentUserId,this.loggedInInfo.isAdmin).subscribe((userInfo)=>{
+      this.userName = userInfo
+    })
+  }
 
+  @ViewChild('reviewContent') txtArea! : ElementRef;
+
+  commentTime:any;
+  //  add reviews to fireBase
+  addReview(reviewContent:string){
+    console.log(reviewContent);
+    console.log(this.loggedInInfo.currentUserId);
+    console.log(this.loggedInInfo.isAdmin);
+    console.log(this.userName.payload.data());
+    console.log(this.userName.payload.data().name);
+    // this.commentTime = new Date();
+    this.commentTime = new Date();
+    //  clear text area after added
+    this.txtArea.nativeElement.value ='';
+    //  object of storing data
+    let ourReview = {reviewContent, UserName:this.userName.payload.data().name, commentDate : this.commentTime};
+    // call the 'addReviews' function to add the previous object to fire base
+    this.userService.addReviews(ourReview).then(res =>{
+      console.log(res);
+    }).catch(error=>{
+      console.log(error);
+    })
+  }
   ngOnInit(): void {
   }
 

@@ -3,7 +3,8 @@
   <!-- <a class="navbar-brand" href="#">Navbar</a> -->
   <!-- <div class="divNav"> -->
     <div class="divLogo">
-      <img src="../../assets/logo.png" alt="" class="logo">
+      <!-- <img src="../../assets/logo.png" alt="" class="logo"> -->
+      <h1>مستر تايلور</h1>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,18 +13,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto navUl">
         <div class="row" style="width: 100%;">
-          <div class="col-lg-3 col-md-3 rightDiv">
+          <div class="col-lg-5 col-md-6 rightDiv">
             <li class="nav-item">
               <a routerLink="/user_access/home" [routerLinkActive]="['active']">الرئيسية</a>
             </li>
-
+            <li class="nav-item">
+              <a class="dropdown-item" routerLink="/user_access/user_profile"> الصفحة الشخصية </a>
+            </li>
             <li class="nav-item">
               <a routerLink="/user_access/feedback" [routerLinkActive]="['active']">التقييمات</a>
             </li>
           </div>
-          <div class="leftDiv col-lg-7 col-md-8">
-            <div class="row">
-              <div class="col-lg-11 col-md-11 col-sm-11 col-10">
+          <div class="leftDiv col-lg-7 col-md-6">
+            <div class="row d-flex justify-content-between">
+              <div class="col-lg-11 col-md-11 col-sm-12 col-12">
                 <li class="nav-item">
                   <form class="form">
                     <div class="formDiv">
@@ -33,23 +36,11 @@
                   </form>
                 </li>
               </div>
-              <div class="col-lg-1 col-md-1 col-sm-1 col-2 dropdownCol">
-                <li class="nav-item">
-                  <div class="dropdown show">
-                    <a class="dropdownLink" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fa-solid fa-ellipsis-vertical "></i>
-                    </a>
-
-                    <div class="dropdown-menu dropdownDiv" aria-labelledby="dropdownMenuLink">
-                      <a class="dropdown-item" routerLink="/user_access/user_profile"> الصفحة الشخصية <i class="fa-solid fa-user userIcon"></i> </a>
-                      <hr>
-                      <a class="dropdown-item" routerLink="#"> تسجيل الخروج <i class="fa fa-arrow-right-from-bracket logoutIcon"></i></a>
-                    </div>
-                  </div>
+              <div class="col-lg-1 col-md-1 col-sm-12 col-12 dropdownCol d-flex align-items-center">
+                <li class="nav-item d-flex align-items-center">
+                  <a class="dropdown-item" (click)="logOut()" style="cursor: pointer;" title="تسجيل الخروج"><i class="fa fa-arrow-right-from-bracket logoutIcon"></i></a>
                 </li>
               </div>
-
-
             </div>
           </div>
         </div>

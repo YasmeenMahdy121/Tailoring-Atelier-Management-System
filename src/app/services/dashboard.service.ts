@@ -32,7 +32,6 @@ export class DashboardService {
        ref.set(model)
 
     }
-
     )
   }
   // get model by id
@@ -51,6 +50,13 @@ export class DashboardService {
     let ref = this.mrTailorDB.collection("models").doc(modelID)
     ref.delete()
     this.router.navigate(["/dashboard/atelier_models"]);
+  }
+  deleteUserModel(clientId:any,modelID:any){
+    let ref = this.mrTailorDB.collection(`/usersModels/${clientId}/userModels`).doc(modelID)
+    ref.delete()
+    this.mrTailorDB.collection('pending').doc(modelID).delete()
+    // return ref.snapshotChanges()
+    // this.router.navigate(["/dashboard/atelier_models"]);
   }
   // best selling models
   bestSellingModels()
@@ -117,12 +123,12 @@ export class DashboardService {
       this.mrTailorDB.collection(`/chats/${currentUserId}/userChat`).doc(id).set(messageObj)
     }
 
-  // get notification 
+  // get notification
   showNotification():Observable<any>
   {
     return this.mrTailorDB.collection(`/notification`, ref =>    ref.orderBy('reservationDate','desc')).snapshotChanges()
   }
-   // updat notification 
+   // updat notification
    updatNotification()
    {
     this.mrTailorDB.collection(`/notification`).get().forEach((data)=>{

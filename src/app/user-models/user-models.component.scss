@@ -52,6 +52,10 @@
             font-size: 23px;
             font-weight: bold;
           }
+          .pendingDiv{
+            display: flex;
+            flex-direction: column;
+          }
           @media only screen and (max-width: 767px) {
             &{
               border: none;

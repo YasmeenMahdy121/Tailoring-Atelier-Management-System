@@ -2,7 +2,7 @@
 <div class="formDiv">
   <h1>أضف رأيك</h1>
   <form class="feedBackForm">
-    <textarea class="form-control txtArea" rows="3"></textarea>
+    <textarea class="form-control txtArea" rows="3" #reviewContent></textarea>
   </form>
-  <button class="feedBackBTN">اضافة الرأى</button>
+  <button class="feedBackBTN" (click)="addReview(reviewContent.value)">اضافة الرأى</button>
 </div>

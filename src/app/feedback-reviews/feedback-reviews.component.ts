@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UsersService} from '../services/users.service';
 
 @Component({
   selector: 'app-feedback-reviews',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackReviewsComponent implements OnInit {
 
-  constructor() { }
+  allReviews :any[]=[];
+  constructor(private userService : UsersService) {
+    this.userService.getReviews().subscribe((review)=>{
+      this.allReviews=[]
+      review.forEach((e)=>{
+       this.allReviews.push(e.payload.doc.data())
+      })
+      console.log(this.allReviews);
+    },(err)=>{
+      console.log(err);
+    })
+  }
 
   ngOnInit(): void {
   }

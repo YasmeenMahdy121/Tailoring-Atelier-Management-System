@@ -8,33 +8,37 @@
   <div class="row">
     <div class="col-lg-6">
       <h2>الاسم</h2>
-      <p>أمنية فيصل</p>
+      <!-- <p>أمنية فيصل</p> -->
+      <p>{{userData?.name}}</p>
 
     </div>
     <div class="col-lg-6">
       <h2>الايميل</h2>
-      <p>omniasalah211@gmail.com</p>
+      <!-- <p>omniasalah211@gmail.com</p> -->
+      <p>{{userData?.email}}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-6">
       <h2>الرقم</h2>
-      <p>01003579733</p>
-
+      <!-- <p>01003579733</p> -->
+      <p>{{userData?.phone}}</p>
     </div>
     <div class="col-lg-6">
       <h2>الباسورد</h2>
-      <p>lorem</p>
+      <!-- <p>lorem</p> -->
+      <p>{{userData?.password}}</p>
     </div>
   </div>
   <div class="row">
     <h2>تاريخ الانضمام</h2>
-    <p>2/11</p>
+    <!-- <p>2-11</p> -->
+    <p>{{userData?.dateJoined}}</p>
   </div>
   <!-- modal -->
   <div class="row">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary modalBTN" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+    <button type="button" class="btn btn-primary modalBTN" data-bs-toggle="modal" data-bs-target="#ModalInfo">
       تعديل البيانات
     </button>
   </div>
@@ -42,12 +46,12 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="ModalInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content p-2">
       <div class="modal-header p-2">
         <h1 class="modal-title" id="exampleModalLongTitle">تعديل البيانات</h1>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" (click)="handleClear()">
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -58,19 +62,19 @@
           <!-- الاسم -->
           <div class="form-group p-2">
             <label for="name">الاسم</label>
-            <input type="text" class="form-control" id="name" placeholder="الاسم" style="padding-right: 30px;" readonly>
+            <input type="text" class="form-control" id="name" placeholder="الاسم" style="padding-right: 30px;" value="{{userData?.name}}" readonly>
           </div>
           <!-- الايميل -->
           <div class="form-group p-2">
             <label for="exampleInputEmail1">البريد الالكتروني</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" style="padding-right: 30px;" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" readonly>
+            <input type="email" class="form-control" id="exampleInputEmail1" style="padding-right: 30px;" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" value="{{userData?.email}}" readonly>
             <small id="emailHelp" class="form-text text-muted"></small>
           </div>
           <!-- رقم الموبايل -->
           <div class="form-group p-2">
             <label for="phone">رقم التليفون</label>
             <input #phoneInput type="text" class="form-control" id="phone" placeholder="رقم التليفون"
-            [class.is-invalid]="phone?.invalid &&phone?.touched" formControlName="phone" style="padding-right: 30px;">
+            [class.is-invalid]="phone?.invalid &&phone?.touched" formControlName="phone" style="padding-right: 30px;" value="{{userData?.phone}}">
             <!-- phone validate -->
             <div *ngIf="phone?.invalid &&phone?.touched">
                 <small class="text-danger" *ngIf="phone?.errors?.['required']">رقم
@@ -83,7 +87,7 @@
           <div class="form-group p-2">
             <label for="exampleInputPassword1">كلمة المرور</label>
             <input #PassInput type="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة المرور"
-            [class.is-invalid]="password?.invalid &&password?.touched" formControlName="password" style="padding-right: 30px;">
+            [class.is-invalid]="password?.invalid &&password?.touched" formControlName="password" style="padding-right: 30px;" value="{{userData?.password}}">
             <!-- password validate -->
             <div *ngIf="password?.invalid &&password?.touched">
                 <small class="text-danger" *ngIf="password?.errors?.['required']">كلمة
@@ -92,17 +96,12 @@
                     السر يجب أن تكون 8 أرقام</small>
             </div>
           </div>
-          <!-- تاكيد الباسورد -->
-          <div class="form-group">
-            <label for="exampleInputPassword2">تأكيد كلمة المرور</label>
-            <input #confirmPassInput type="password" style="padding-right: 30px;" class="form-control" id="exampleInputPassword2" placeholder="تأكيد كلمة المرور" formControlName="confirmPassword">
-            <small class="text-danger" *ngIf="UserInfoForm.errors?.['misMatch']">يجب تأكيد كلمة المرور</small>
-          </div>
+
         </form>
       </div>
       <div class="modal-footer p-2">
-        <button type="button" class="btn btn-secondary modalClose" data-bs-dismiss="modal" (click)="handleClear()">اغلاق</button>
-        <button type="button" class="btn btn-primary" (click)="handleClear()">حفظ البيانات</button>
+        <button type="button" class="btn btn-secondary modalClose" data-bs-dismiss="modal">اغلاق</button>
+        <button type="button" class="btn btn-primary" (click)="upDateUserInfo()">حفظ البيانات</button>
       </div>
     </div>
   </div>

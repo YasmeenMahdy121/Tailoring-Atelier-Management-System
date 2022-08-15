@@ -13,6 +13,13 @@ export const environment = {
     messagingSenderId: "476987570499",
     appId: "1:476987570499:web:15a70572145d446c4997f6",
     measurementId: "G-VE5T7CGYSK"
+    // apiKey: "AIzaSyAB-d0sgRvWaRKZhe7USpCln16wXtyL5cI",
+    // authDomain: "medical-349d6.firebaseapp.com",
+    // projectId: "medical-349d6",
+    // storageBucket: "medical-349d6.appspot.com",
+    // messagingSenderId: "813481724777",
+    // appId: "1:813481724777:web:587edefc9b308345a00bf8",
+    // measurementId: "G-PPK3BB78SV"
   }
 };
 
