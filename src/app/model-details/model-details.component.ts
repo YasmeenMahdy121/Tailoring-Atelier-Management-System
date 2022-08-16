@@ -53,6 +53,7 @@ export class ModelDetailsComponent implements OnInit {
         ...this.modelDetails
       }
       this.usersService.reserveExistModel(newModel)
+      alert('تم الحجز')
       // Swal.fire({
       //   position: 'top-end',
       //   icon: 'success',

@@ -48,7 +48,10 @@ export class DashboardChatComponent implements OnInit {
           userName:client.name,
           userChat:messages
         }
-        this.usersIds.push(client.clientId)
+        let isExist = this.usersIds.some((id:string)=>id==client.clientId)
+        if(!isExist){
+          this.usersIds.push(client.clientId)
+        }
         console.log(this.userChats[client.clientId])
       }
       else{
