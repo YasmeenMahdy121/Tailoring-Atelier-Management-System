@@ -64,7 +64,7 @@ p { margin: 0; }
 	bottom: 0;
 	font-size: 12px;
 	right: 24px;
-	position: absolute;
+	position: fixed;
 	width: 300px;
 	z-index:  9999 !important;
 }
@@ -289,7 +289,7 @@ p { margin: 0; }
   }
 
   .chatIcon{
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     width: 80px;
     cursor: pointer;
