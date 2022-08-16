@@ -139,4 +139,12 @@ export class DashboardService {
       })
     })
    }
+   deleteNotifications(){
+    this.mrTailorDB.collection(`/notification`).get().forEach(notifications=>{
+      notifications.forEach((notification) => {
+        notification.ref.delete();
+      });
+    })
+
+   }
 }

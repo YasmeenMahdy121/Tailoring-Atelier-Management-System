@@ -1,5 +1,7 @@
-<div (click)="changFlag()" *ngIf="!flag" class="m-4">
-    <i  class="fa fa-comment-dots h1 " style='font-size:70px;color:#c3453c'></i>
+<div >
+  <div (click)="changFlag()" *ngIf="!flag" class="mx-4">
+    <!-- <i  class="fa fa-comment-dots h1 " style='font-size:70px;color:#c3453c'></i> -->
+    <img src="../assets/chat_icon.png" class="chatIcon" alt="">
 </div>
 
 	<div *ngIf="flag" id="live-chat">
@@ -18,7 +20,7 @@
 
 		<div class="chat">
 
-			<div class="chat-history">
+			<div class="chat-history" id="scrollDown">
 
 				<div class="chat-message clearfix">
 					<div class="col-12" [ngClass]="{'user-message-chat' : message.from=='user', 'admin-message-chat' : message.from=='admin'}" *ngFor="let message of chatMessages">
@@ -39,3 +41,5 @@
 
 	</div> <!-- end live-chat -->
 
+
+</div>

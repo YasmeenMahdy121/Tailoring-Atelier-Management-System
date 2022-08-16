@@ -29,7 +29,6 @@
     width: 88%;
     .card{
       width: 100%;
-      min-height: calc(80vh - 80px);
       background: url('../../assets/reservation.webp') left center no-repeat;
       background-size: cover;
       position: relative;
@@ -61,10 +60,10 @@
             opacity: 1 !important;
           }
           h3{
-            margin-top: 10px;
+            margin-top: 40px;
             font-size: 35px;
             font-weight: 700;
-            font-family: 'Vibes', cursive;
+            font-family: 'Vibes', cursive !important;
             color: #d3e3e7;
           }
         }

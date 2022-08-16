@@ -64,10 +64,9 @@ p { margin: 0; }
 	bottom: 0;
 	font-size: 12px;
 	right: 24px;
-	position: fixed;
+	position: absolute;
 	width: 300px;
 	z-index:  9999 !important;
-	background-color: #1a8a34;
 }
 
 #live-chat header {
@@ -78,16 +77,16 @@ p { margin: 0; }
 	padding: 16px 24px;
 }
 
-#live-chat h4::after {
-	background: #1a8a34;
-	border-radius: 50%;
-	content: "";
-	display: inline-block;
-	height: 8px;
+// #live-chat h4::after {
+// 	background: #1a8a34;
+// 	border-radius: 50%;
+// 	content: "";
+// 	display: inline-block;
+// 	height: 8px;
 
-	width: 8px;
-    margin: 0px 5px;
-}
+// 	width: 8px;
+//     margin: 0px 5px;
+// }
 
 #live-chat h4 {
 	font-size: 12px;
@@ -287,4 +286,11 @@ p { margin: 0; }
 		}
 	  }
 	}
+  }
+
+  .chatIcon{
+    position: absolute;
+    bottom: 10px;
+    width: 80px;
+    cursor: pointer;
   }

@@ -1,6 +1,6 @@
 import { Validators, FormBuilder } from '@angular/forms';
 import { DashboardService } from './../services/dashboard.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-chat',
@@ -28,7 +28,6 @@ export class DashboardChatComponent implements OnInit {
       clients.forEach((client)=>{
         let u:any = client.payload.doc.data()
         this.getUserChat(u)
-        this.usersIds.push(u.clientId)
       })
 
    },(err)=>{
@@ -43,13 +42,17 @@ export class DashboardChatComponent implements OnInit {
       userMessages.forEach((message:any)=>{
         messages.push(message.payload.doc.data())
       })
-      // if(this.userChats[client.clientId]?.userChat.legth){
-      //     this.chatLength++
-      // }
-      this.userChats[client.clientId] = {
-        userId:client.clientId,
-        userName:client.name,
-        userChat:messages
+      if(messages.length!==0){
+        this.userChats[client.clientId] = {
+          userId:client.clientId,
+          userName:client.name,
+          userChat:messages
+        }
+        this.usersIds.push(client.clientId)
+        console.log(this.userChats[client.clientId])
+      }
+      else{
+        delete this.userChats[client.clientId] 
       }
    },(err)=>{
       console.log(err);
@@ -71,12 +74,17 @@ export class DashboardChatComponent implements OnInit {
   sendMessage(message:any){
     console.log(this.currentUserId)
     this.dashboardServices.sendMessage(this.currentUserId, message)
+    this.scrollDown()
     this.chatForm.reset()
+  }
+  scrollDown(){
+    let chat = document.getElementById("scrollDown")
+    chat?.scroll({ top: chat?.scrollHeight, behavior: 'smooth'});
+    console.log(chat)
   }
 
   ngOnInit(): void {
     this.getAllClients()
-    // this.getUsersChats()
   }
 
 }

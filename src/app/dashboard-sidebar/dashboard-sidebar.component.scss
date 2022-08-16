@@ -10,8 +10,13 @@
     border-bottom: 1px solid $main-color;
     h2{
       color: $main-color-alt;
-      font-family: 'Vibes', cursive;
-      font-size: 25px;
+      font-family: 'Vibes', cursive !important;
+      font-size: 35px;
+      font-weight: 900;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
   ul{

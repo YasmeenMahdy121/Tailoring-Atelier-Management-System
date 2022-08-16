@@ -8,32 +8,32 @@
       <h1>التصميم</h1>
       <div class="innerDiv">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-          <label class="form-check-label" for="flexRadioDefault1">
+          <input (change)="modelTypeChange(bloza.value)" #bloza class="form-check-input" type="radio" name="modelType" id="bloza" value="بلوزة">
+          <label class="form-check-label" for="bloza">
             بلوزة
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
+          <input (change)="modelTypeChange(jaib.value)" #jaib class="form-check-input" type="radio" name="modelType" id="jaib" value="جيبة">
+          <label class="form-check-label" for="jaib">
             جيبة
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-          <label class="form-check-label" for="flexRadioDefault3">
+          <input (change)="modelTypeChange(bntlon.value)" #bntlon class="form-check-input" type="radio" name="modelType" id="bntlon" value="بنطلون">
+          <label class="form-check-label" for="bntlon">
             بنطلون
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-          <label class="form-check-label" for="flexRadioDefault4">
+          <input (change)="modelTypeChange(dress.value)" #dress class="form-check-input" type="radio" name="modelType" id="dress" value="فستان">
+          <label class="form-check-label" for="dress">
             فستان
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
-          <label class="form-check-label" for="flexRadioDefault5">
+          <input (change)="modelTypeChange(jacket.value)" #jacket class="form-check-input" type="radio" name="modelType" id="jacket" value="جاكت">
+          <label class="form-check-label" for="jacket">
             جاكيت
           </label>
         </div>
@@ -45,19 +45,19 @@
       <h1>السن</h1>
       <div class="innerDiv">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="age" id="age1" checked>
+          <input (change)="modelAgeChange(old.value)" #old class="form-check-input" type="radio" name="age" id="age1" value="كبار السن">
           <label class="form-check-label" for="age1">
             كبار السن
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="age" id="age2">
+          <input (change)="modelAgeChange(adults.value)" #adults class="form-check-input" type="radio" name="age" id="age2" value="متوسط السن">
           <label class="form-check-label" for="age2">
             متوسط السن
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="age" id="age3">
+          <input (change)="modelAgeChange(child.value)" #child class="form-check-input" type="radio" name="age" id="age3" value="صغار السن">
           <label class="form-check-label" for="age3">
             صغار السن
           </label>
@@ -74,7 +74,7 @@
         <div dir="rtl">
           <div class="example-label-container" [class]="vertical ? 'example-label-vertical' : 'example-label-horizontal'">
             <!-- <label id="example-name-label" class="example-name-label">Max Value</label> -->
-            <label class="example-value-label"> {{value}}  جنيه  </label>
+            <label class="example-value-label"> {{modelPrice}}  جنيه  </label>
           </div>
           <mat-slider
               class="example-margin"
@@ -85,7 +85,7 @@
               [step]="step"
               [thumbLabel]="thumbLabel"
               [tickInterval]="getSliderTickInterval()"
-              [(ngModel)]="value"
+              [(ngModel)]="modelPrice"
               [vertical]="vertical"
               aria-labelledby="example-name-label">
           </mat-slider>
@@ -97,75 +97,24 @@
     <!-- stars -->
     <div class="starsDiv">
       <h1>التقييم</h1>
-      <div class="innerDiv">
+      <div class="innerDiv py-2">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="star" id="star1" checked>
-          <label class="form-check-label" for="star1">
-            <div class="stars">
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-            </div>
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="star" id="star2">
-          <label class="form-check-label" for="star2">
-            <div class="stars">
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="star" id="star3">
-          <label class="form-check-label" for="star3">
-            <div class="stars">
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="star" id="star4">
-          <label class="form-check-label" for="star4">
-            <div class="stars">
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="star" id="star5">
-          <label class="form-check-label" for="star5">
-            <div class="stars">
-              <i class="fa-solid fa-star" style="color: #ffcc00"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-          </label>
+            <ng-rating-bar
+            [(value)]="modelRate"
+            [ratingCount]="5"
+            ></ng-rating-bar>
         </div>
       </div>
     </div>
     <!-- end stars -->
   </div>
-  <div class="col-lg-9 modelCardCol" style="background-color: transparent;">
-    <app-model-card></app-model-card>
+  <div class="col-lg-9 modelCardCol p-4" style="background-color: transparent; margin-top: 60px;">
+    <div class="row">
+      <div class="col-md-6 col-lg-4 px-2" *ngFor="let model of allModels | userSearch:modelkeyWord:modelType:ageCategory:modelPrice:modelRate">
+          <app-model-card [modelInfo]="model"></app-model-card>
+      </div>
+    </div>
 
 
   </div>
 </div>
-<!-- use app-model-card component to show searched models and loop on it -->

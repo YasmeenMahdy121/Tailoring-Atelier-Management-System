@@ -6,9 +6,11 @@
     background-size: contain;
   }
   .form-right{
+    display: flex;
+    align-items: center;
     .card{
       width: 80%;
-      min-height: calc(100vh - 100px);
+      min-height: calc(100vh - 200px);
       background: url('../../assets/reservation.webp') left center no-repeat;
       background-size: contain;
       position: relative;
@@ -40,10 +42,10 @@
             opacity: 1 !important;
           }
           h3{
-            margin-top: 10px;
+            margin-top: 40px;
             font-size: 35px;
             font-weight: 700;
-            font-family: 'Vibes', cursive;
+            font-family: 'Vibes', cursive !important;
             color: #d3e3e7;
           }
         }

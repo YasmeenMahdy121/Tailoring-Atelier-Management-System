@@ -25,11 +25,6 @@ export class FeedbackFormComponent implements OnInit {
   commentTime:any;
   //  add reviews to fireBase
   addReview(reviewContent:string){
-    console.log(reviewContent);
-    console.log(this.loggedInInfo.currentUserId);
-    console.log(this.loggedInInfo.isAdmin);
-    console.log(this.userName.payload.data());
-    console.log(this.userName.payload.data().name);
     // this.commentTime = new Date();
     this.commentTime = new Date();
     //  clear text area after added

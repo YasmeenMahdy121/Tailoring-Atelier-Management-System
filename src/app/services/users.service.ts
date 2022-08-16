@@ -29,7 +29,7 @@ export class UsersService {
   //  get all reviews used in feedback-review component
   getReviews()
   {
-   let ref= this.mrTailorDB.collection('Reviews')
+   let ref= this.mrTailorDB.collection('Reviews', ref =>    ref.orderBy('commentDate'))
     return ref.snapshotChanges()
   }
   //  get user info used in profile- info component

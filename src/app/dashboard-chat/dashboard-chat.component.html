@@ -8,11 +8,10 @@
   </div>
   <div class="col-md-8">
     <div *ngIf="currentUser" class="d-flex p-3 pe-4 align-items-center justify-content-between">
-      <div class="d-flex align-items-start">
+      <div class="d-flex align-items-center">
         <img src="../assets/avatar.png" class="user-img" alt="">
         <div class="d-flex flex-column pe-4">
           {{currentUser}}
-          <span class="pt-2 d-flex align-items-center gap-2">متصل الان <div class="online-dot bg-success"></div></span>
         </div>
       </div>
       <!-- dropdown -->
@@ -39,22 +38,22 @@
     </div>
     <!-- conversations -->
     <div class="row m-0 chats">
-      <div (click)="getCurrentChat(userId)" *ngFor="let userId of usersIds | searchUserChat:userChats:term" class="col-12 border-bottom d-flex p-3 px-4 justify-content-between align-items-center chat-tab" [ngClass]="{'new-messages':userChats[userId]?.userChat[userChats[userId].userChat.length-1].type=='new'&&userChats[userId]?.userChat[userChats[userId].userChat.length-1].from=='user'}">
-        <div class="d-flex align-items-start w-75">
+      <div (click)="getCurrentChat(userId)" *ngFor="let userId of usersIds | searchUserChat:userChats:term" class="col-12 d-flex px-4 justify-content-between align-items-center chat-tab" [ngClass]="{'new-messages':userChats[userId]?.userChat[userChats[userId]?.userChat.length-1]?.type=='new'&&userChats[userId]?.userChat[userChats[userId]?.userChat.length-1]?.from=='user', 'border-bottom':userChats[userId]?.userChat.length!=0, 'p-3':userChats[userId]?.userChat.length!=0}">
+        <div class="d-flex align-items-start w-75" *ngIf="userChats[userId]?.userChat.length!=0">
           <img src="../assets/avatar.png" class="user-img" alt="">
           <div class="d-flex flex-column pe-4 w-75">
           <span class="user-n">{{userChats[userId]?.userName}}</span>
-          <span class="pt-1 d-flex align-items-center gap-2 user-message">{{userChats[userId]?.userChat[userChats[userId].userChat.length-1].message}}</span>
+          <span class="pt-1 d-flex align-items-center gap-2 user-message">{{userChats[userId]?.userChat[userChats[userId]?.userChat.length-1]?.message}}</span>
         </div>
         </div>
-        <span class="message-time text-start d-block w-25">{{userChats[userId]?.userChat[userChats[userId].userChat.length-1].date | date:"HH:mm a"}}</span>
+        <span class="message-time text-start d-block w-25">{{userChats[userId]?.userChat[userChats[userId]?.userChat.length-1]?.date | date:"HH:mm a"}}</span>
       </div>
     </div>
   </div>
   <!-- start chat -->
   <div class="col-md-8 chat p-0 m-0">
     <div *ngIf="currentUser">
-      <div class="row px-5 m-0 messages">
+      <div class="row px-5 m-0 messages" id="scrollDown" >
         <div *ngFor="let message of currentChat" class="col-12" [ngClass]="{'admin-message-chat' : message.from=='admin', 'user-message-chat' : message.from=='user'}">
           <span *ngIf="message.from=='user'" class="message-time">{{message.date | date:"HH:mm a"}}</span>
             <div class="message">{{message.message}}</div>

@@ -1,7 +1,8 @@
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { AuthService } from './../services/auth.service';
 import { UsersService } from './../services/users.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'; 
 
 @Component({
   selector: 'app-model-details',
@@ -52,7 +53,13 @@ export class ModelDetailsComponent implements OnInit {
         ...this.modelDetails
       }
       this.usersService.reserveExistModel(newModel)
-      alert('تم الحجز')
+      // Swal.fire({
+      //   position: 'top-end',
+      //   icon: 'success',
+      //   title: 'Your work has been saved',
+      //   showConfirmButton: false,
+      //   timer: 1500
+      // })
       // this.router.navigate(["/user_access/home"])
 
     }

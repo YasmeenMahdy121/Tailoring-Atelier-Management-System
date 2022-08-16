@@ -1,6 +1,7 @@
 <div class="notification container">
+  <h3 (click)="showConfirmMessage()" class="deleteNotes">حذف جميع الاشعارات</h3>
     <div class="notification-content  " >
-       
+      <h1 *ngIf="!usersNotification.length" class="noNotes"> لا يوجداشعارات لعرضها</h1>
 
       <div class="row" *ngFor="let note of usersNotification;let i = index">
         <div class="col-md-8 d-flex  align-items-center">
@@ -11,9 +12,6 @@
                 <h1> {{note.clientInfo.name}}</h1>
                 <p class="lead text-muted">قامت بحجز {{note.modelType}}</p> 
             </div>
-            <!-- <div class="notification-text">
-                <p class="lead text-muted">قامت بحجز موديل</p> 
-            </div> -->
         </div>
 
         <div class="col-md-4 notification-date d-flex justify-content-end align-items-center">
@@ -29,3 +27,25 @@
 
     
 </div>
+
+<div *ngIf="confirmDeletionShow" class="overlay">
+  <div class="overlay-form w-50  h-50">
+
+  <div class="card">
+      <div class="overlay"></div>
+
+      <form>
+
+
+          <p class="lead py-3 pt-5 text-center text-white">
+              هل تريد بالفعل حذف جميع الاشعارات؟
+          </p>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <button (click)="confirmDeletion()" type="submit" class="formBtn btn btn-danger">  تأكيد</button>
+        <button (click)="cancel()" type="button" class="formBtn btn btn-success">الغاء </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>

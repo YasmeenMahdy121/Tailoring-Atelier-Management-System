@@ -8,6 +8,7 @@ import { DashboardService } from './../services/dashboard.service';
 })
 export class DashboardNotificationsComponent implements OnInit {
   usersNotification:any[]=[]
+  confirmDeletionShow:boolean = false
   constructor(private dashboardServices:DashboardService) { 
     this.dashboardServices.showNotification().subscribe((notifications)=>{
       this.usersNotification=[]
@@ -18,6 +19,17 @@ export class DashboardNotificationsComponent implements OnInit {
       
       
     })
+  }
+
+  showConfirmMessage(){
+    this.confirmDeletionShow = true
+  }
+  confirmDeletion(){
+    this.dashboardServices.deleteNotifications()
+    this.confirmDeletionShow = false
+  }
+  cancel(){
+    this.confirmDeletionShow = false
   }
 
   ngOnInit(): void {

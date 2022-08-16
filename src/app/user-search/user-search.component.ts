@@ -1,3 +1,4 @@
+import { UsersService } from './../services/users.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -10,14 +11,38 @@ export class UserSearchComponent implements OnInit {
   autoTicks = false;
   disabled = false;
   invert = false;
-  max = 100;
+  max = 500;
   min = 0;
   showTicks = false;
-  step = 1;
+  step = 5;
   thumbLabel = false;
-  value = 0;
   vertical = false;
   tickInterval = 1;
+  modelkeyWord:any;
+  allModels :any[]=[];
+  modelType:string = ''
+  ageCategory:string = ''
+  modelPrice:number = 0
+  modelRate:number = 0
+  constructor(private activatedroute:ActivatedRoute, private userServices: UsersService) {
+    // get active url params
+    this.activatedroute.paramMap.subscribe((params:ParamMap)=>
+    {
+
+      this.modelkeyWord=params.get('keyword');
+
+    })
+    this.userServices.getAllModels().subscribe((model)=>{
+      this.allModels=[]
+      model.forEach((e)=>{
+       this.allModels.push(e.payload.doc.data())
+      })
+
+   },(err)=>{
+      console.log(err);
+
+   })
+  }
 
   getSliderTickInterval(): number | 'auto' {
     if (this.showTicks) {
@@ -26,17 +51,14 @@ export class UserSearchComponent implements OnInit {
 
     return 0;
   }
-  modelkeyWord:any;
-  constructor(private activatedroute:ActivatedRoute) {
-    // get active url params
-    this.activatedroute.paramMap.subscribe((params:ParamMap)=>
-    {
 
-      this.modelkeyWord=params.get('keyword');
-
-      // this.getModelById(this.modelkeyWord)
-
-    })
+  modelTypeChange(modelType:string){
+    this.modelType = modelType
+    console.log(this.modelType)
+  }
+  modelAgeChange(ageCategory:string){
+    this.ageCategory = ageCategory
+    console.log(this.ageCategory)
   }
 
   ngOnInit(): void {

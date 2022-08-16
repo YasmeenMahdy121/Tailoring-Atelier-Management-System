@@ -36,9 +36,15 @@ constructor(private authService:AuthService, private usersService:UsersService, 
        this.chatMessages.push(e.payload.doc.data())
       })
    })
+   this.scrollDown()
   }
   ngOnInit(): void {
     this.getUserMessages()
   }
 
+  scrollDown(){
+    let chat = document.getElementById("scrollDown")
+    chat?.scroll({ top: chat?.scrollHeight, behavior: 'smooth'});
+    console.log(chat)
+  }
 }
