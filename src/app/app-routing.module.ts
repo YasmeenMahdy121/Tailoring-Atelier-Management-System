@@ -27,6 +27,8 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { ViewAllModelsComponent } from './view-all-models/view-all-models.component';
 import { UserAccessGuard } from './user-access.guard';
 import { AdminAccessGuard } from './admin-access.guard';
+import { DashboardSearchUsersComponent } from './dashboard-search-users/dashboard-search-users.component';
+
 const routes: Routes = [
   {
     path:'',
@@ -62,6 +64,7 @@ const routes: Routes = [
             component:DashboardAllModelsWithCrudOPerationComponent,
             children:[
               {path:'add_model',canActivate:[AdminAccessGuard],component:DashboardAddModelComponent},
+            
               {path:'update_model/:id',canActivate:[AdminAccessGuard],component:DashboardUpdateModelComponent},
               {path:'delete_model/:id',canActivate:[AdminAccessGuard],component:DashboardDeleteModelComponent},
             ]
@@ -70,6 +73,7 @@ const routes: Routes = [
           {path:'pending_models',canActivate:[AdminAccessGuard],component:DashboardPendingModelsComponent},
           {path:'confirmed_models',canActivate:[AdminAccessGuard],component:DashboardConfirmedModelsComponent},
           {path:'chat',canActivate:[AdminAccessGuard],component:DashboardChatComponent},
+          {path:'about_users',canActivate:[AdminAccessGuard],component:DashboardSearchUsersComponent},
           {path:'searsh_user_models/:keyword',canActivate:[AdminAccessGuard],component:DashboardSearshUserModelsComponent},
           {path:'notifications',canActivate:[AdminAccessGuard],component:DashboardNotificationsComponent},
           {path:'feedbacks',canActivate:[AdminAccessGuard],component:DashboardFeedbackComponent},
@@ -83,7 +87,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  
+
 
 exports: [RouterModule]
 })

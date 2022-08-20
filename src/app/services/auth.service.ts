@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable , BehaviorSubject} from 'rxjs'
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,14 @@ export class AuthService {
         }
       },err=>{
         console.log(err.message)
-        this.router.navigate(["/signin"]);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Oops...',
+          text:  'هناك خطأ فى الأيميل او الباسورد',
+          timer: 1500
+        })
+        // this.router.navigate(["/signin"]);
       })
     }
 
@@ -61,7 +69,14 @@ export class AuthService {
         }
       },err=>{
         console.log(err.message)
-        this.router.navigate(["/signin"]);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'هذا الايميل مسجل بالفعل',
+          timer: 1500
+        })
+        
       })
     }
 

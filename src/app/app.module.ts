@@ -49,6 +49,8 @@ import { ViewAllModelsComponent } from './view-all-models/view-all-models.compon
 import { NgRatingBarModule } from 'ng-rating-bar';
 import { SearchUserChatPipe } from './search-user-chat.pipe';
 import { UserSearchPipe } from './user-search.pipe';
+import { DashboardSearchUsersComponent } from './dashboard-search-users/dashboard-search-users.component';
+
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { UserSearchPipe } from './user-search.pipe';
     SearchPipe,
     ViewAllModelsComponent,
     SearchUserChatPipe,
-    UserSearchPipe
+    UserSearchPipe,
+    DashboardSearchUsersComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -30,16 +30,13 @@ export class UserSearchComponent implements OnInit {
     {
 
       this.modelkeyWord=params.get('keyword');
-
+      
     })
     this.userServices.getAllModels().subscribe((model)=>{
       this.allModels=[]
       model.forEach((e)=>{
        this.allModels.push(e.payload.doc.data())
       })
-
-   },(err)=>{
-      console.log(err);
 
    })
   }
@@ -54,10 +51,13 @@ export class UserSearchComponent implements OnInit {
 
   modelTypeChange(modelType:string){
     this.modelType = modelType
+    this.modelkeyWord=''
     console.log(this.modelType)
   }
   modelAgeChange(ageCategory:string){
     this.ageCategory = ageCategory
+    this.modelkeyWord=''
+
     console.log(this.ageCategory)
   }
 

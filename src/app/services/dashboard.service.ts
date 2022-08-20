@@ -147,4 +147,8 @@ export class DashboardService {
     })
 
    }
+
+   getUserSearch(currentUserId:any){
+    return  this.mrTailorDB.collection(`/mrTailorClients`).doc(currentUserId).snapshotChanges()
+   }
 }

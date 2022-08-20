@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DashboardService } from './../services/dashboard.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard-navbar',
@@ -8,7 +10,8 @@ import { DashboardService } from './../services/dashboard.service';
 })
 export class DashboardNavbarComponent implements OnInit {
   newNotification:number=0
-  constructor(private dashboardServices:DashboardService) { 
+
+  constructor(private dashboardServices:DashboardService,private router:Router) { 
     this.dashboardServices.showNotification().subscribe((notifications)=>{
       this.newNotification=0
       notifications.forEach((notification:any) => {
@@ -21,6 +24,21 @@ export class DashboardNavbarComponent implements OnInit {
     })
   }
 
+  toNavegate(input:string)
+  {
+    if (input =='') {
+      this.router.navigate(["/dashboard/atelier_models"])
+      console.log("all");
+      
+    }
+    else{
+      this.router.navigate(['/dashboard/searsh_user_models',input])
+      
+      console.log("search");
+      
+    }
+    
+  }
   updatNotification()
   {
     this.dashboardServices.updatNotification()
