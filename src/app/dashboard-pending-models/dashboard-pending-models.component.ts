@@ -17,9 +17,6 @@ export class DashboardPendingModelsComponent implements OnInit {
       penddingModels.forEach((penddingModels)=>{
        this.penddingModels.push(penddingModels.payload.doc.data())
       })
-   },(err)=>{
-      console.log(err);
-
    })
   }
 
@@ -75,7 +72,7 @@ showConfirm:boolean=false
       this.dashboardServices.deletePenddingModel(this.modelToConfirmPrice)
       this.showConfirm=false
       console.log(price);
-      
+
   }
 
   closeOverlay()

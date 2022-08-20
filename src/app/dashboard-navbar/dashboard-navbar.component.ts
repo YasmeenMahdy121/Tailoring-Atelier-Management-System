@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class DashboardNavbarComponent implements OnInit {
   newNotification:number=0
 
-  constructor(private dashboardServices:DashboardService,private router:Router) { 
+  constructor(private dashboardServices:DashboardService,private router:Router) {
     this.dashboardServices.showNotification().subscribe((notifications)=>{
       this.newNotification=0
       notifications.forEach((notification:any) => {
@@ -20,7 +20,7 @@ export class DashboardNavbarComponent implements OnInit {
         this.newNotification++
         }
       });
-      
+
     })
   }
 
@@ -28,21 +28,16 @@ export class DashboardNavbarComponent implements OnInit {
   {
     if (input =='') {
       this.router.navigate(["/dashboard/atelier_models"])
-      console.log("all");
-      
     }
     else{
       this.router.navigate(['/dashboard/searsh_user_models',input])
-      
-      console.log("search");
-      
     }
-    
+
   }
   updatNotification()
   {
     this.dashboardServices.updatNotification()
-    
+
   }
 
   ngOnInit(): void {

@@ -50,4 +50,7 @@ export class ModelCardComponent implements OnInit {
     })
 
   }
+  cancelRating(){
+    this.flag = false;
+  }
 }

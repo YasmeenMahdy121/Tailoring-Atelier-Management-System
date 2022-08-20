@@ -5,6 +5,6 @@
   </form>
   <div routerLink="/dashboard/notifications" class="dashboard-notifications" (click)="updatNotification()">
     <i class="fas fa-bell"></i>
-    <span class="count">{{newNotification}}</span>
+    <span *ngIf="newNotification" class="count">{{newNotification}}</span>
   </div>
 </nav>

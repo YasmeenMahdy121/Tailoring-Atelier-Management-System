@@ -1,43 +1,42 @@
-<!-- <div class="d-flex justify-content-center align-items-center" *ngIf="error">
+<div class="d-flex justify-content-center align-items-center" *ngIf="error">
     <h1>{{error}}</h1>
-</div> -->
+</div>
 <div class="container contain">
     <div class="row" *ngFor="let client of usersIds ;let i = index">
       <div class="col-lg-6">
         <h2>الاسم</h2>
-        <!-- <p>أمنية فيصل</p> -->
         <p>{{client?.name}}</p>
-  
+
       </div>
       <div class="col-lg-6">
         <h2>الايميل</h2>
-     
+
         <p>{{client?.email}}</p>
       </div>
 
       <div class="col-lg-6">
         <h2>الرقم</h2>
-        
+
         <p>{{client?.phone}}</p>
       </div>
 
       <div class="col-lg-6">
         <h2>تاريخ الانضمام</h2>
-        
+
         <p>{{client?.dateJoined}}</p>
       </div>
     </div>
 
-    
-   
-   
+
+
+
   </div>
-  
+
 
   <div class="container" style="background-color: transparent;">
-    <h1 class=" text-center py-5 fw-bold">التصميمات</h1>
+    <h1 *ngIf="!error" class=" text-center py-5 fw-bold">التصميمات</h1>
     <div class="roww" *ngFor="let model of allModelsData">
-      <div class="card">
+      <div class="card" *ngIf="model.state != 'implemented'">
         <div class="row">
           <div class="col-lg-3 col-md-4 forImg" style="background-color: transparent;">
             <img [src]="model.img" alt="">
@@ -53,18 +52,47 @@
           </div>
           <div class="col-lg-3 col-md-4 productState" style="background-color: transparent;">
             <!-- price -->
-            <h2>سعر التصميم : <span class="price"><span style="font-weight: bold;font-size: 25px;">{{model.price}}</span> جنيه</span></h2>
-  
+            <h2>سعر التصميم : <span class="price">{{model.price?model.price + ' جنيه':'غير محدد'}}</span></h2>
+
             <br>
             <div class="pendingDiv" *ngIf="model.state == 'pending'">
-              <span class="state">معلق</span>
-              <button class="btn btn-danger mt-3 p-2" (click)="DeleteModel(model.clientInfo.clientId,model.modelId)">إلغاء الحجز</button>
+              <button class="btn btn-danger mt-3 p-2" (click)="confirmPenddingModel(model)">تأكيد</button>
             </div>
-            <span class="state" *ngIf="model.state == 'confirmed'">تم التأكيد</span>
-            <span class="state" *ngIf="model.state == 'implemented'">تم التنفيذ</span>
+            <div class="pendingDiv" *ngIf="model.state == 'confirmed'">
+              <button class="btn btn-danger mt-3 p-2" (click)="modelImplemented(model)">تم التنفيذ</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+  <!--  -->
+  <div *ngIf="showConfirm" class="overlay ">
+    <div class="overlay-form w-50">
+    <div class="card">
+        <div class="overlay"></div>
+        <form  [formGroup]="pendingModelForm" >
+          <div class="logo">
+            <!-- <img src="../../assets/logo.png" alt=""> -->
+            <h3>مستر تايلور</h3>
+          </div>
+
+
+          <div class="form-group">
+            <!-- modelPicture -->
+            <div class="modelPrice">
+
+              <input required type="number" placeholder="السعر" name="modelPrice" formControlName="modelPrice" #ModelPrice>
+            </div>
+            <div *ngIf="modelPrice?.invalid &&modelPrice?.touched">
+              <small class="text-danger" *ngIf="modelPrice?.errors?.['required']">السعر مطلوب</small>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <button type="submit" class="formBtn btn btn-success" [disabled]="pendingModelForm.invalid" (click)="setPriceAndConfirmPenddingModel(ModelPrice.value)">  تأكيد</button>
+          <button (click)="closeOverlay()" type="button" class="formBtn btn btn-danger">الغاء </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>

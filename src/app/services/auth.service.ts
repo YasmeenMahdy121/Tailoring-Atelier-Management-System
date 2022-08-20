@@ -40,7 +40,6 @@ export class AuthService {
           icon: 'error',
           title: 'Oops...',
           text:  'هناك خطأ فى الأيميل او الباسورد',
-          timer: 1500
         })
         // this.router.navigate(["/signin"]);
       })
@@ -74,9 +73,8 @@ export class AuthService {
           icon: 'error',
           title: 'Oops...',
           text: 'هذا الايميل مسجل بالفعل',
-          timer: 1500
         })
-        
+
       })
     }
 

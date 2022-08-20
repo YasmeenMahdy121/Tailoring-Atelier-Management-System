@@ -17,14 +17,15 @@
         <hr>
     </div>
     <div class="buttons">
-        <a class="btn a1" [routerLink]="['/user_access/model_details/'+modelInfo.modelId]">للحجز والإستعلام</a>
-        <a class="btn a2" (click)="addRating()">اضف تقييمك</a>
+        <a class="btn a1 " [routerLink]="['/user_access/model_details/'+modelInfo.modelId]">للحجز والإستعلام</a>
+        <a class="btn a2 btn-warning" (click)="addRating()">اضف تقييمك</a>
     </div>
     <div *ngIf="flag" class="rating d-flex flex-column justify-content-center align-items-center" >
         <ng-rating-bar [styles]="{fontSize:'40px'}"
         [(value)]="rateValueChanges"
         [ratingCount]="5"
         ></ng-rating-bar>
-        <button class="btn btn-dark" (click)="ratingDone(modelInfo)">قيم</button>
-        </div>
+        <button class="btn btn-warning text-white py-1 fs-5" (click)="ratingDone(modelInfo)">قيم</button>
+        <button class="btn btn-dark py-1 fs-5" (click)="cancelRating()">الغاء</button>
+    </div>
 </div>
