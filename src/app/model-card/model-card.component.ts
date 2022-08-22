@@ -28,19 +28,22 @@ export class ModelCardComponent implements OnInit {
   }
   addRating() {
     this.flag = true;
-    console.log(this.flag);
   }
   ratingDone(modelInfo: any) {
     this.usersService.getCurrentUsersModels(this.loggedInInfo.currentUserId).forEach((userModels) => {
       let isExist = false;
       userModels.forEach((userModel: any) => {
-        if (modelInfo.modelId == userModel.payload.doc.data().modelId) {
+        if (modelInfo.modelId == userModel.payload.doc.data().modelId && userModel.payload.doc.data().state=='implemented') {
           isExist = true;
         }
       })
       if (isExist) {
-        modelInfo['rateOut'+ this.rateValueChanges]++
-        this.usersService.updateModel(modelInfo);
+        if(this.rateValueChanges)
+        {
+          console.log(this.rateValueChanges)
+          modelInfo['rateOut'+ this.rateValueChanges]++
+          this.usersService.updateModel(modelInfo);
+        }
         this.flag = false;
       }
       else {

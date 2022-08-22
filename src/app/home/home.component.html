@@ -9,7 +9,7 @@
         </div>
     </section>
 
-    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center">
+    <div *ngIf="allModels.length" class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center">
         <h2>الموديلات الأكتر مبيعا</h2>
 
         <a routerLink="/user_access/view_all_models/best_selling">مشاهدة الكل <i class="fas fa-chevron-left"></i></a>
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
+    <div *ngIf="dress.length" class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
         <h2>الفساتين </h2>
 
         <a routerLink="/user_access/view_all_models/فستان">مشاهدة الكل <i class="fa-solid fa-circle-arrow-left"></i></a>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
+    <div *ngIf="jacket.length" class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
         <h2>الجواكت </h2>
 
         <a routerLink="/user_access/view_all_models/جاكت">مشاهدة الكل <i
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
+    <div *ngIf="jaib.length" class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center" id="head">
         <h2>الجيب </h2>
 
         <a routerLink="/user_access/view_all_models/جيبة">مشاهدة الكل <i class="fa-solid fa-circle-arrow-left"></i></a>
