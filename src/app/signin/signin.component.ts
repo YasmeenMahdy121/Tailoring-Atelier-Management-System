@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -45,7 +45,13 @@ export class SigninComponent implements OnInit {
         this.adminSignIn()
       }
       else{
-        alert('not admin format')
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'هذا الشكل لا ينطبق على الادمن',
+        })
+
       }
     }
     else{
@@ -54,11 +60,11 @@ export class SigninComponent implements OnInit {
   }
 
   adminSignIn(){
-    console.log('hi admin')
+   
     this.authService.login(this.email?.value, this.password?.value, true)
   }
   userSignIn(){
-    console.log('hi user')
+    
     this.authService.login(this.email?.value, this.password?.value, false)
   }
 

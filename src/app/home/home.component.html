@@ -9,10 +9,14 @@
         </div>
     </section>
 
-    <div *ngIf="allModels.length" class="header-time d-flex flex-column flex-md-row justify-content-between align-items-center">
-        <h2>الموديلات الأكتر مبيعا</h2>
+    <div *ngIf="allModels.length" class="header-time d-flex  justify-content-between align-items-center">
+       <div class="">
+        <h2 class="m-0">الموديلات الأكتر مبيعا</h2>
+       </div>
 
+       <div class="">
         <a routerLink="/user_access/view_all_models/best_selling">مشاهدة الكل <i class="fas fa-chevron-left"></i></a>
+       </div>
     </div>
 
     <div class="category">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -46,7 +46,13 @@ export class RegistrationComponent implements OnInit {
         this.adminRegister()
       }
       else{
-        alert('not admin format')
+        alert('')
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'هذا الشكل لا ينطبق على الادمن',
+        })
       }
     }
     else{
