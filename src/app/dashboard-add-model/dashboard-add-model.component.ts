@@ -17,6 +17,10 @@ export class DashboardAddModelComponent implements OnInit {
     ageCategory:['',[Validators.required]],
     modelPrice : ['',[Validators.required]],
     modelPicture : ['',[Validators.required]],
+    medium: ['',[Validators.required]],
+    large : ['',[Validators.required]],
+    xLarge : ['',[Validators.required]],
+    xxLarge : ['',[Validators.required]],
   })
 
   imgPath:string = ''
@@ -36,6 +40,18 @@ export class DashboardAddModelComponent implements OnInit {
   get modelPicture(){
     return this.addModelForm.get('modelPicture')
   }
+  get medium(){
+    return this.addModelForm.get('medium')
+  }
+  get large(){
+    return this.addModelForm.get('large')
+  }
+  get xLarge(){
+    return this.addModelForm.get('xLarge')
+  }
+  get xxLarge(){
+    return this.addModelForm.get('xxLarge')
+  }
   // get image path
   selectedImg($event:any){
     this.imgPath = $event.target.files[0]
@@ -49,6 +65,10 @@ export class DashboardAddModelComponent implements OnInit {
       modelType:this.modelType?.value,
       price:this.modelPrice?.value,
       ageCategory:this.ageCategory?.value,
+      medium:this.medium?.value,
+      large:this.large?.value,
+      xLarge:this.xLarge?.value,
+      xxLarge:this.xxLarge?.value,
       selledQuantity:0,
       rateOut1:0,
       rateOut2:0,

@@ -23,12 +23,28 @@ export class DashboardPendingModelsComponent implements OnInit {
 showConfirm:boolean=false
 
   pendingModelForm= new FormGroup({
-    modelPrice:new FormControl('',[Validators.required])
+    modelPrice:new FormControl('',[Validators.required]),
+    medium:new FormControl('',[Validators.required]),
+    large :new FormControl('',[Validators.required]),
+    xLarge :new FormControl('',[Validators.required]),
+    xxLarge :new FormControl('',[Validators.required]),
   })
 
   get modelPrice()
   {
     return this.pendingModelForm.get("modelPrice")
+  }
+  get medium(){
+    return this.pendingModelForm.get('medium')
+  }
+  get large(){
+    return this.pendingModelForm.get('large')
+  }
+  get xLarge(){
+    return this.pendingModelForm.get('xLarge')
+  }
+  get xxLarge(){
+    return this.pendingModelForm.get('xxLarge')
   }
   penddingModels:any[]=[]
   modelToConfirmPrice:any = {}
@@ -61,6 +77,10 @@ showConfirm:boolean=false
       this.modelToConfirmPrice = {
         ...this.modelToConfirmPrice,
         price,
+        medium:this.medium?.value,
+        large:this.large?.value,
+        xLarge:this.xLarge?.value,
+        xxLarge:this.xxLarge?.value,
         state: 'confirmed',
         confirmDate: new Date().getTime()
       }

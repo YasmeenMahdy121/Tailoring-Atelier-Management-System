@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center">
-    <div class="row">
+    <div class="row w-100">
         <div class="preview col-md-6 gx-5">
 
             <div>
@@ -17,25 +17,33 @@
                     <p class="review-no pt-2">{{(reviewsNum)+' من الأراء'}}</p>
                 </div>
                 <h2 class="price">{{modelDetails?.price}} ج</h2>
-                <div class="row">
+                <div class="row justify-content-center">
 
-                    <div class="col-3">
-                        <input type="radio" name="data" id="pic-2" style="display: none;">
-                        <label for="pic-2" class="model-size"> <img class="w-100" src="155.jpg" alt="Hobbies"> </label>
+                  <div class="col-2 p-1">
+                    <input (change)="recommendedSize(medium.value)" #medium type="radio" name="data" id="pic-11" [value]="modelDetails?.medium" style="display: none;">
+                    <label for="pic-11" class="model-size text-center fs-5 sizes"> <img class="w-100 mb-2 h-100" src="../assets/medium.jpeg" style="cursor: pointer;" alt="Hobbies">
+                    M
+                    </label>
+                </div>
+
+                    <div class="col-2 p-1">
+                        <input (change)="recommendedSize(large.value)" #large type="radio" name="data" id="pic-2" [value]="modelDetails?.large" style="display: none;">
+                        <label for="pic-2" class="model-size text-center fs-5 sizes"> <img class="w-100 mb-2 h-100" src="../assets/large.jpeg" style="cursor: pointer;" alt="Hobbies">
+                        L
+                        </label>
                     </div>
-                    <div class="col-3">
-                        <input type="radio" name="data" id="pic-3" style="display: none;">
-                        <label for="pic-3" class="model-size"> <img class="w-100" src="155.jpg" alt="Hobbies"> </label>
+                    <div class="col-2 p-1">
+                        <input (change)="recommendedSize(xLarge.value)" #xLarge type="radio" name="data" id="pic-3" [value]="modelDetails?.xLarge" style="display: none;">
+                        <label for="pic-3" class="model-size text-center fs-5 sizes"> <img class="w-100 mb-2 h-100" src="../assets/xLarge.jpeg" style="cursor: pointer;" alt="Hobbies">
+                        XL</label>
                     </div>
-                    <div class="col-3">
-                        <input type="radio" name="data" id="pic-4" style="display: none;">
-                        <label for="pic-4" class="model-size"> <img class="w-100" src="155.jpg" alt="Hobbies"> </label>
-                    </div>
-                    <div class="col-3">
-                        <input type="radio" name="data" id="pic-5" style="display: none;">
-                        <label for="pic-5" class="model-size"> <img class="w-100" src="155.jpg" alt="Hobbies"> </label>
+                    <div class="col-2 p-1">
+                        <input (change)="recommendedSize(xxLarge.value)" #xxLarge type="radio" name="data" id="pic-4" [value]="modelDetails?.xxLarge" style="display: none;">
+                        <label for="pic-4" class="model-size text-center fs-5 sizes"> <img class="w-100 mb-2 h-100" src="../assets/xxLarge.jpeg" style="cursor: pointer;" alt="Hobbies">
+                        XXL</label>
                     </div>
                 </div>
+                <div *ngIf="sizeRecommended" class="text-center fs-5 mt-4">{{'مساحة القماش المقترحة : ' + sizeRecommended + ' متر'}}</div>
 
             </div>
             <div class="action">

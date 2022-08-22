@@ -1,7 +1,7 @@
   .container{
     margin-top: 6rem;
   }
-  input[type=radio]:checked+.model-size{
+  input[type=radio]:checked+.model-size img{
 border: 2px solid rgba(195, 69, 60, 255);
 
   }
@@ -52,3 +52,6 @@ border: 2px solid rgba(195, 69, 60, 255);
 
   // /*# sourceMappingURL=style.css.map */
 
+.sizes{
+  height: 100px;
+}

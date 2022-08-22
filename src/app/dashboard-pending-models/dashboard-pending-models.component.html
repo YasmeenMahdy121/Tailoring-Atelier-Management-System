@@ -45,18 +45,60 @@
           <!-- <img src="../../assets/logo.png" alt=""> -->
           <h3>مستر تايلور</h3>
         </div>
-     
-     
+
+
         <div class="form-group">
           <!-- modelPicture -->
           <div class="modelPrice">
 
             <input required type="number" placeholder="السعر" name="modelPrice" formControlName="modelPrice" #ModelPrice>
           </div>
-          <div *ngIf="modelPrice?.invalid &&modelPrice?.touched">
+          <div *ngIf="modelPrice?.invalid && modelPrice?.touched">
             <small class="text-danger" *ngIf="modelPrice?.errors?.['required']">السعر مطلوب</small>
           </div>
         </div>
+        <!--  -->
+        <div class="form-group">
+          <!--  -->
+          <div class="modelPrice">
+
+            <input required type="number" placeholder="M" name="medium" formControlName="medium">
+          </div>
+          <div *ngIf="medium?.invalid &&medium?.touched">
+            <small class="text-danger" *ngIf="medium?.errors?.['required']">هذا المقاس مطلوب</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- thin body -->
+          <div class="modelPrice">
+
+            <input required type="number" placeholder="L" name="large" formControlName="large">
+          </div>
+          <div *ngIf="large?.invalid &&large?.touched">
+            <small class="text-danger" *ngIf="large?.errors?.['required']">هذا المقاس مطلوب</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- middle body -->
+          <div class="modelPrice">
+
+            <input required type="number" placeholder="XL" name="xLarge" formControlName="xLarge">
+          </div>
+          <div *ngIf="xLarge?.invalid &&xLarge?.touched">
+            <small class="text-danger" *ngIf="xLarge?.errors?.['required']">هذا المقاس مطلوب</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <!-- fat body -->
+          <div class="modelPrice">
+
+            <input required type="number" placeholder="XXL" name="xxLarge" formControlName="xxLarge">
+          </div>
+          <div *ngIf="xxLarge?.invalid &&xxLarge?.touched">
+            <small class="text-danger" *ngIf="xxLarge?.errors?.['required']">هذا المقاس مطلوب</small>
+          </div>
+        </div>
+        <!--  -->
         <div class="d-flex justify-content-between align-items-center">
           <button type="submit" class="formBtn btn btn-success" [disabled]="pendingModelForm.invalid" (click)="setPriceAndConfirmPenddingModel(ModelPrice.value)">  تأكيد</button>
         <button (click)="closeOverlay()" type="button" class="formBtn btn btn-danger">الغاء </button>

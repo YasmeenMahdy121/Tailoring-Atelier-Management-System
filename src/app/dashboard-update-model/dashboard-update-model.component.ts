@@ -16,6 +16,10 @@ export class DashboardUpdateModelComponent implements OnInit {
     modelType : ['',[Validators.required]],
     ageCategory:['',[Validators.required]],
     modelPrice : ['',[Validators.required]],
+    medium : ['',[Validators.required]],
+    large : ['',[Validators.required]],
+    xLarge : ['',[Validators.required]],
+    xxLarge : ['',[Validators.required]],
   })
 
   oldModel:any
@@ -41,6 +45,18 @@ export class DashboardUpdateModelComponent implements OnInit {
   get modelPrice(){
     return this.updateModelForm.get('modelPrice')
   }
+  get medium(){
+    return this.updateModelForm.get('medium')
+  }
+  get large(){
+    return this.updateModelForm.get('large')
+  }
+  get xLarge(){
+    return this.updateModelForm.get('xLarge')
+  }
+  get xxLarge(){
+    return this.updateModelForm.get('xxLarge')
+  }
   // get model by id
   getModelById(modelID:any){
     this.DashboardService.getModelById(modelID).subscribe((model)=>{
@@ -57,6 +73,10 @@ export class DashboardUpdateModelComponent implements OnInit {
       modelType:this.oldModel?.modelType,
       ageCategory:this.oldModel?.ageCategory,
       modelPrice:this.oldModel?.price,
+      medium:this.oldModel?.medium,
+      large:this.oldModel?.large,
+      xLarge:this.oldModel?.xLarge,
+      xxLarge:this.oldModel?.xxLarge,
     })
   }
   // update model
@@ -66,6 +86,10 @@ export class DashboardUpdateModelComponent implements OnInit {
       modelType:this.modelType?.value,
       price:this.modelPrice?.value,
       ageCategory:this.ageCategory?.value,
+      medium:this.medium?.value,
+      large:this.large?.value,
+      xLarge:this.xLarge?.value,
+      xxLarge:this.xxLarge?.value,
     }
     this.DashboardService.updateModel(updatedModel)
   }

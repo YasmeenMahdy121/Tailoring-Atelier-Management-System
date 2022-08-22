@@ -7,50 +7,93 @@
             <!-- <img src="../../assets/logo.png" alt=""> -->
             <h3>مستر تايلور</h3>
           </div>
-          <div class="form-group">
-            <div class="dropdown">
-              <select required name="modelType" id="modelType" formControlName="modelType">
-                  <option value="" disabled selected>المودل</option>
-                  <option value="بلوزة">بلوزة</option>
-                  <option value="بنطلون">بنطلون</option>
-                  <option value="فستان">فستان</option>
-                  <option value="جاكت">جاكت</option>
-                  <option value="سلوبت">سلوبت</option>
-                  <option value="قميص">قميص</option>
-                  <option value="تيشرت">تيشرت</option>
-                  <option value="جيبة">جيبة</option>
-              </select>
+          <div class="row">
+            <div class="form-group col-6">
+              <div class="dropdown">
+                <select required name="modelType" id="modelType" formControlName="modelType">
+                    <option value="" disabled selected>المودل</option>
+                    <option value="بلوزة">بلوزة</option>
+                    <option value="بنطلون">بنطلون</option>
+                    <option value="فستان">فستان</option>
+                    <option value="جاكت">جاكت</option>
+                    <option value="سلوبت">سلوبت</option>
+                    <option value="قميص">قميص</option>
+                    <option value="تيشرت">تيشرت</option>
+                    <option value="جيبة">جيبة</option>
+                </select>
+              </div>
+              <div *ngIf="modelType?.invalid &&modelType?.touched">
+                <small class="text-danger" *ngIf="modelType?.errors?.['required']">الموديل مطلوب</small>
+              </div>
             </div>
-            <div *ngIf="modelType?.invalid &&modelType?.touched">
-              <small class="text-danger" *ngIf="modelType?.errors?.['required']">الموديل مطلوب</small>
+            <div class="form-group col-6">
+              <div class="dropdown">
+                <select required name="ageCategory" id="ageCategory" formControlName="ageCategory">
+                    <option value="" disabled selected>الفئة العمرية</option>
+                    <option value="كبار السن">كبار السن</option>
+                    <option value="متوسط السن">متوسط السن</option>
+                    <option value="صغار السن">صغار السن</option>
+                </select>
+              </div>
+              <div *ngIf="ageCategory?.invalid &&ageCategory?.touched">
+                <small class="text-danger" *ngIf="ageCategory?.errors?.['required']">الفئة العمرية مطلوبة</small>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <div class="dropdown">
-              <select required name="ageCategory" id="ageCategory" formControlName="ageCategory">
-                  <option value="" disabled selected>الفئة العمرية</option>
-                  <option value="كبار السن">كبار السن</option>
-                  <option value="متوسط السن">متوسط السن</option>
-                  <option value="صغار السن">صغار السن</option>
-              </select>
-            </div>
-            <div *ngIf="ageCategory?.invalid &&ageCategory?.touched">
-              <small class="text-danger" *ngIf="ageCategory?.errors?.['required']">الفئة العمرية مطلوبة</small>
-            </div>
-          </div>
-          <div class="form-group">
-            <!-- modelPicture -->
-            <div class="modelPrice">
+            <div class="form-group col-6">
+              <!-- modelPicture -->
+              <div class="modelPrice">
 
-              <input required type="number" placeholder="السعر" name="modelPrice" formControlName="modelPrice">
+                <input required type="number" placeholder="السعر" name="modelPrice" formControlName="modelPrice">
+              </div>
+              <div *ngIf="modelPrice?.invalid &&modelPrice?.touched">
+                <small class="text-danger" *ngIf="modelPrice?.errors?.['required']">السعر مطلوب</small>
+              </div>
             </div>
-            <div *ngIf="modelPrice?.invalid &&modelPrice?.touched">
-              <small class="text-danger" *ngIf="modelPrice?.errors?.['required']">السعر مطلوب</small>
+            <!--  -->
+            <div class="form-group col-6">
+              <!--  -->
+              <div class="modelPrice">
+
+                <input required type="number" placeholder="M" name="medium" formControlName="medium">
+              </div>
+              <div *ngIf="medium?.invalid &&medium?.touched">
+                <small class="text-danger" *ngIf="medium?.errors?.['required']">هذا المقاس مطلوب</small>
+              </div>
             </div>
+            <div class="form-group col-6">
+              <!-- thin body -->
+              <div class="modelPrice">
+
+                <input required type="number" placeholder="L" name="large" formControlName="large">
+              </div>
+              <div *ngIf="large?.invalid &&large?.touched">
+                <small class="text-danger" *ngIf="large?.errors?.['required']">هذا المقاس مطلوب</small>
+              </div>
+            </div>
+            <div class="form-group col-6">
+              <!-- middle body -->
+              <div class="modelPrice">
+
+                <input required type="number" placeholder="XL" name="xLarge" formControlName="xLarge">
+              </div>
+              <div *ngIf="xLarge?.invalid &&xLarge?.touched">
+                <small class="text-danger" *ngIf="xLarge?.errors?.['required']">هذا المقاس مطلوب</small>
+              </div>
+            </div>
+            <div class="form-group col-12">
+              <!-- fat body -->
+              <div class="modelPrice">
+
+                <input required type="number" placeholder="XXL" name="xxLarge" formControlName="xxLarge">
+              </div>
+              <div *ngIf="xxLarge?.invalid &&xxLarge?.touched">
+                <small class="text-danger" *ngIf="xxLarge?.errors?.['required']">هذا المقاس مطلوب</small>
+              </div>
+            </div>
+            <!--  -->
           </div>
 
-
-          <div class="form-group">
+          <div class="form-group col-12">
             <!-- modelPicture -->
             <div class="modelPicture">
               <span>ارفع صورة التصميم <i class="fa-solid fa-upload pe-2"></i></span>

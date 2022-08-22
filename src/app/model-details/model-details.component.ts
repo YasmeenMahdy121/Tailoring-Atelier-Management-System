@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import { AuthService } from './../services/auth.service';
 import { UsersService } from './../services/users.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Component, OnInit } from '@angular/core'; 
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-model-details',
@@ -15,6 +15,7 @@ export class ModelDetailsComponent implements OnInit {
   modelDetails:any
   reviewsNum:number=0
   loggedInInfo:any
+  sizeRecommended:any = ''
   constructor(private authService:AuthService, private usersService:UsersService, private activatedRoute:ActivatedRoute) {
     this.authService.loggedInInfo.subscribe((loggedInState)=>{
       this.loggedInInfo = loggedInState
@@ -44,6 +45,10 @@ export class ModelDetailsComponent implements OnInit {
     })
   }
 
+  recommendedSize(size:any){
+    this.sizeRecommended = size
+  }
+
     // reserve model
     reserveModel(){
       const newModel = {
@@ -53,7 +58,7 @@ export class ModelDetailsComponent implements OnInit {
         ...this.modelDetails
       }
       this.usersService.reserveExistModel(newModel)
-     
+
       Swal.fire({
         position: 'center',
         icon: 'success',

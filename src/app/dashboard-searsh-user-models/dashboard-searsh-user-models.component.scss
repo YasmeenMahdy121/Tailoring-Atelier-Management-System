@@ -49,13 +49,12 @@
     padding: 0;
   }
   .container{
-    height: max-content;
     background-color: #fff;
 
     .roww{
-      padding: 20px;
       .card{
         padding: 10px;
+        margin: 20px 0;
         // height: 200px;
         border-radius: 0;
         background-color: white;
@@ -232,7 +231,7 @@
 
         input{
 
-          background-color: rgba(214, 213, 213, 0.788);
+          background-color: rgba(241, 240, 240, 0.788);
           position: absolute;
          outline: none;
          padding: 10px;
